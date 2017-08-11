@@ -154,7 +154,7 @@
           console.log(response.status);
           FB.login(function(resp){
             if (resp.status === "connected"){
-              console.log(resp.status);
+              window.location.href = "/";
             }
           })
         }
