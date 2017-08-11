@@ -52,18 +52,6 @@
       });
       FB.AppEvents.logPageView();
 
-      FB.getLoginStatus(function(response) {
-
-        if (response.status === "connected") {
-          console.log(response.status);
-          window.location.href = "/"
-        } else {
-          console.log(response.status);
-
-        }
-
-
-      });
     };
 
     (function(d, s, id){
@@ -157,6 +145,19 @@
     $(document).ready(function(){
 
       //Login Status
+
+      FB.getLoginStatus(function(response) {
+
+        if (response.status === "connected") {
+          console.log(response.status);
+          window.location.href = "/"
+        } else {
+          console.log(response.status);
+
+        }
+
+
+      });
 
 
       $("#btn-send").click(function(){
