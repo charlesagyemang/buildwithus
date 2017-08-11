@@ -209,8 +209,7 @@
 
     $(document).ready(function(){
 
-      //Login Status
-
+      //Facebook login status
       FB.getLoginStatus(function(response) {
         if (response.status === "connected") {
           console.log(response.status);
@@ -220,6 +219,7 @@
         }
       });
 
+      // login using facebook
       $("#btn-fb-login").click(function(){
         //Use this logic in a button
         FB.login(function(resp){
