@@ -147,18 +147,16 @@
       //Login Status
 
       FB.getLoginStatus(function(response) {
-
         if (response.status === "connected") {
           console.log(response.status);
           window.location.href = "/"
         } else {
           console.log(response.status);
-
+          FB.login(function(resp){
+            console.log(resp);
+          })
         }
-
-
       });
-
 
       $("#btn-send").click(function(){
         var email           = $("#email").val();
