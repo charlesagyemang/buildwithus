@@ -4,6 +4,8 @@
     <title>The Nest - Real Estate HTML Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+    <meta name="google-signin-client_id" content="744014003229-cnpgth0p71r3naer2egkciqidn9677gh.apps.googleusercontent.com">
+
 
     <!-- External CSS libraries -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
@@ -97,6 +99,8 @@
         }
     </style>
 
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
@@ -165,6 +169,9 @@
                             <div class="form-group">
                                 <button id="btn-login" type="button" class="button-md button-theme btn-block">login</button><br  />
                                 <button id="btn-fb-login-login" class="loginBtn loginBtn--facebook" type="button" name="button">Login With Facebook</button>
+                                <button id="btn-fb-login-login" class="loginBtn loginBtn--google g-signin2" type="button" name="button" data-onsuccess="onSignIn">Login With Google</button>
+
+
                             </div>
                         </form>
                         <!-- Form end -->
@@ -259,6 +266,7 @@
       })
 
     })
+
   </script>
 </body>
 </html>
