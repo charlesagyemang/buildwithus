@@ -51,6 +51,19 @@
         version    : 'v2.8'
       });
       FB.AppEvents.logPageView();
+
+      FB.getLoginStatus(function(response) {
+
+        if (response.status === "connected") {
+          console.log(response.status);
+          window.location.href = "/"
+        } else {
+          console.log(response.status);
+
+        }
+
+
+      });
     };
 
     (function(d, s, id){
@@ -92,7 +105,8 @@
                                 <input  id="password_confirm" type="password" name="confirm_Password" class="input-text" placeholder="Confirm Password">
                             </div>
                             <div class="form-group">
-                                <button id="btn-send" type="button" class="button-md button-theme btn-block">Signup</button>
+                                <button id="btn-send" type="button" class="button-md button-theme btn-block">Signup</button><br  />
+                                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
                             </div>
                         </form>
                         <!-- Form end-->
@@ -138,10 +152,7 @@
 </body>
 
   <script type="text/javascript">
-    //
-    // FB.getLoginStatus(function(response) {
-    //   statusChangeCallback(response);
-    // });
+
 
     $(document).ready(function(){
 
