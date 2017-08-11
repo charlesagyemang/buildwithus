@@ -159,7 +159,7 @@
                             </div>
                             <div class="form-group">
                                 <button id="btn-send" type="button" class="button-md button-theme btn-block">Signup</button><br  />
-                                <button  id="btn-fb-login" class="loginBtn loginBtn--facebook" type="button" name="button">Login With Facebook</button>
+                                <button id="btn-fb-login" class="loginBtn loginBtn--facebook" type="button" name="button">Login With Facebook</button>
                             </div>
                         </form>
                         <!-- Form end-->
@@ -220,6 +220,15 @@
         }
       });
 
+      $("#btn-fb-login").click(function(){
+        //Use this logic in a button
+        FB.login(function(resp){
+          if (resp.status === "connected"){
+            window.location.href = "/";
+          }
+        })
+      })
+
       $("#btn-send").click(function(){
         var email           = $("#email").val();
         var password        = $("#password").val();
@@ -243,14 +252,7 @@
 
       })
 
-      $("#btn-fb-login").click(function(){
-        Use this logic in a button
-        FB.login(function(resp){
-          if (resp.status === "connected"){
-            window.location.href = "/";
-          }
-        })
-      })
+
 
     })
   </script>
