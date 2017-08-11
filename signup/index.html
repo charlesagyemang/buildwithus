@@ -41,6 +41,26 @@
     <script type="text/javascript" src="js/respond.min.js"></script>
     <![endif]-->
 </head><body>
+  <script>
+
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1389092361127539',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.8'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
 
 <div class="page_loader"></div>
 
@@ -58,21 +78,21 @@
                             <h1><span>Signup</span></h1>
                         </div>
                         <!-- Form start-->
-                        <form action="index.html">
+                        <form>
                             <div class="form-group">
-                                <input type="text" name="fullname" class="input-text" placeholder="Full Name">
+                                <input id="fullname" type="text" name="fullname" class="input-text" placeholder="Full Name">
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" class="input-text" placeholder="Email Address">
+                                <input  id="email" type="email" name="email" class="input-text" placeholder="Email Address">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" class="input-text" placeholder="Password">
+                                <input  id="password" type="password" name="password" class="input-text" placeholder="Password">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="confirm_Password" class="input-text" placeholder="Confirm Password">
+                                <input  id="password_confirm" type="password" name="confirm_Password" class="input-text" placeholder="Confirm Password">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="button-md button-theme btn-block">Signup</button>
+                                <button id="btn-send" type="button" class="button-md button-theme btn-block">Signup</button>
                             </div>
                         </form>
                         <!-- Form end-->
@@ -80,7 +100,7 @@
                     <!-- Footer -->
                     <div class="footer">
                         <span>
-                            I want to <a href="login.html">return to login</a>
+                            I want to <a href="/login">return to login</a>
                         </span>
                     </div>
                 </div>
@@ -90,6 +110,8 @@
     </div>
 </div>
 <!-- Copy end right-->
+
+<script src="https://buildgallery.herokuapp.com/js/devless-sdk.js" class="devless-connection" devless-con-token="41b1f8b6dd4823f63f8eeed626bfafa8"></script>
 
 <script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
@@ -114,4 +136,41 @@
 <script type="text/javascript" src="/js/ie10-viewport-bug-workaround.js"></script>
 
 </body>
+
+  <script type="text/javascript">
+    // 
+    // FB.getLoginStatus(function(response) {
+    //   statusChangeCallback(response);
+    // });
+
+    $(document).ready(function(){
+
+      //Login Status
+
+
+      $("#btn-send").click(function(){
+        var email           = $("#email").val();
+        var password        = $("#password").val();
+        var passwordConfirm = $("#password_confirm").val();
+        var fullName        = $("#fullname").val();
+        var signUpdetails   = [email, password, fullName, '', '', '', '', ''];
+
+        if ( email.length > 0 && password.length > 0  && password === passwordConfirm) {
+          SDK.call('devless', 'signUp', signUpdetails,function(resp){
+            if (resp.payload.result !== undefined) {
+              SDK.setToken(resp.payload.result.token);
+              window.location.href = "/";
+            } else {
+              alert("User Already Exist");
+            }
+          });
+        } else {
+          alert("Make sure email and password fileds are not empty")
+        }
+
+
+      })
+
+    })
+  </script>
 </html>

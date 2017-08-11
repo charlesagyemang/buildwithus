@@ -60,10 +60,10 @@
                         <!-- Form start -->
                         <form action="index.html">
                             <div class="form-group">
-                                <input type="email" name="email" class="input-text" placeholder="Email Address">
+                                <input id="email-login" type="email" name="email" class="input-text" placeholder="Email Address">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="Password" class="input-text" placeholder="Password">
+                                <input id="password-login" type="password" name="Password" class="input-text" placeholder="Password">
                             </div>
                             <div class="checkbox">
                                 <div class="ez-checkbox pull-left">
@@ -76,7 +76,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="button-md button-theme btn-block">login</button>
+                                <button id="btn-login" type="button" class="button-md button-theme btn-block">login</button>
                             </div>
                         </form>
                         <!-- Form end -->
@@ -84,7 +84,7 @@
                     <!-- Footer -->
                     <div class="footer">
                         <span>
-                            New to Tempo? <a href="signup.html">Sign up now</a>
+                            New to Tempo? <a href="/signup">Sign up now</a>
                         </span>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
     </div>
 </div>
 <!-- Copy end right-->
-
+<script src="https://buildgallery.herokuapp.com/js/devless-sdk.js" class="devless-connection" devless-con-token="41b1f8b6dd4823f63f8eeed626bfafa8"></script>
 <script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap-submenu.js"></script>
@@ -117,5 +117,39 @@
 <!-- Custom javascript -->
 <script type="text/javascript" src="/js/ie10-viewport-bug-workaround.js"></script>
 
+
+  <script type="text/javascript">
+    //
+    // FB.getLoginStatus(function(response) {
+    //   statusChangeCallback(response);
+    // });
+    $(document).ready(function(){
+      //Login Status
+
+      $("#btn-login").click(function(){
+        var email           = $("#email-login").val();
+        var password        = $("#password-login").val();
+        var loginDetails    = ['', email, '', password];
+
+        if ( email.length > 0 && password.length > 0) {
+          SDK.call('devless', 'login', loginDetails,function(resp){
+            if (resp.payload.result == false ) {
+                alert("Wrong Details");
+            } else {
+
+              SDK.setToken(resp.payload.result.token);
+              window.location.href = "/";
+
+            }
+          });
+        } else {
+          alert("Make sure email and password fileds are not empty")
+        }
+
+
+      })
+
+    })
+  </script>
 </body>
 </html>
