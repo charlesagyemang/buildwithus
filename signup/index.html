@@ -213,9 +213,6 @@
 
   <script type="text/javascript">
 
-
-    $(document).ready(function(){
-
       function onSignedIn(googleUser) {
        // Useful data for your client-side scripts:
 
@@ -236,6 +233,8 @@
      };
 
 
+
+    $(document).ready(function(){
       //Facebook login status
       FB.getLoginStatus(function(response) {
         if (response.status === "connected") {
