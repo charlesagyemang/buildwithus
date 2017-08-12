@@ -4,6 +4,7 @@
     <title>The Nest - Real Estate HTML Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+    <meta name="google-signin-client_id" content="744014003229-cnpgth0p71r3naer2egkciqidn9677gh.apps.googleusercontent.com">
 
     <!-- External CSS libraries -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
@@ -96,6 +97,8 @@
         }
     </style>
 
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
@@ -160,6 +163,10 @@
                             <div class="form-group">
                                 <button id="btn-send" type="button" class="button-md button-theme btn-block">Signup</button><br  />
                                 <button id="btn-fb-login" class="loginBtn loginBtn--facebook" type="button" name="button">Login With Facebook</button>
+                                <center>
+                                  <br  />
+                                  <div class="g-signin2" style="width: 200px" data-onsuccess="onSignIn"></div>
+                                </center>
                             </div>
                         </form>
                         <!-- Form end-->
@@ -208,6 +215,26 @@
 
 
     $(document).ready(function(){
+
+      function onSignIn(googleUser) {
+       // Useful data for your client-side scripts:
+
+       var profile = googleUser.getBasicProfile();
+
+         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+         console.log('Full Name: ' + profile.getName());
+         console.log('Given Name: ' + profile.getGivenName());
+         console.log('Family Name: ' + profile.getFamilyName());
+         console.log("Image URL: " + profile.getImageUrl());
+         console.log("Email: " + profile.getEmail());
+
+         // The ID token you need to pass to your backend:
+         var id_token = googleUser.getAuthResponse().id_token;
+         console.log("ID Token: " + id_token);
+
+         window.location.href = "/";
+     };
+
 
       //Facebook login status
       FB.getLoginStatus(function(response) {
