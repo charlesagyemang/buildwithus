@@ -218,16 +218,12 @@
 
 
   <script type="text/javascript">
-    //
-    // FB.getLoginStatus(function(response) {
-    //   statusChangeCallback(response);
-    // });
 
       function onSignIn(googleUser) {
        // Useful data for your client-side scripts:
 
        var profile = googleUser.getBasicProfile();
-       if (profile !== undefined) {
+
          console.log("ID: " + profile.getId()); // Don't send this directly to your server!
          console.log('Full Name: ' + profile.getName());
          console.log('Given Name: ' + profile.getGivenName());
@@ -239,11 +235,7 @@
          var id_token = googleUser.getAuthResponse().id_token;
          console.log("ID Token: " + id_token);
 
-       } else {
-          console.log("no gmail");
-       }
-
-
+         window.location.href = "/";
      };
 
     $(document).ready(function(){
