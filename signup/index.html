@@ -108,9 +108,9 @@
     <script type="text/javascript" src="js/html5shiv.min.js"></script>
     <script type="text/javascript" src="js/respond.min.js"></script>
     <![endif]-->
-</head><body>
+</head>
+<body>
   <script>
-
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '1389092361127539',
@@ -165,7 +165,7 @@
                                 <button id="btn-fb-login" class="loginBtn loginBtn--facebook" type="button" name="button">Login With Facebook</button>
                                 <center>
                                   <br  />
-                                  <div class="g-signin2" style="width: 200px" data-onsuccess="onSignIn"></div>
+                                  <div class="g-signin2" style="width: 200px" data-onsuccess="onSignedIn"></div>
                                 </center>
                             </div>
                         </form>
@@ -216,7 +216,7 @@
 
     $(document).ready(function(){
 
-      function onSignIn(googleUser) {
+      function onSignedIn(googleUser) {
        // Useful data for your client-side scripts:
 
        var profile = googleUser.getBasicProfile();
