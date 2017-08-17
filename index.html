@@ -31,6 +31,15 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
 
+    <style>
+        .modal{
+        position: fixed;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%);
+        }
+    </style>
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script type="text/javascript" src="js/ie-emulation-modes-warning.js"></script>
@@ -93,7 +102,7 @@
                           Home
                       </a>
                   </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a tabindex="0" href="/about" aria-expanded="false">
                             About Us
                         </a>
@@ -109,7 +118,7 @@
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a tabindex="0" href="/contact" aria-expanded="false">
+                        <a tabindex="0" href="/makeanappointment" aria-expanded="false">
                             Make An Appointment
                         </a>
                     </li>
@@ -140,8 +149,8 @@
                     <div class="text-center">
                         <h1 data-animation="animated fadeInDown delay-05s"><span>Find your </span> Dream House</h1>
                         <p class="hidden-xs">Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit</p>
-                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-05s">Let's get started</a>
-                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-05s">About us</a>
+                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-05s" data-toggle="modal" data-target="#myModal">Let's get started</a>
+                        <a href="/about" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-05s">About us</a>
                     </div>
                 </div>
             </div>
@@ -150,8 +159,8 @@
                 <div class="carousel-caption banner-slider-inner banner-top-align">
                     <div class="text-right">
                         <h1 data-animation="animated fadeInDown delay-05s"><span>Sweet Home For</span> <br>Small Family</h1>
-                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-05s">Get Started Now</a>
-                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-05s">Learn More</a>
+                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-05s" data-toggle="modal" data-target="#myModal">Get Started Now</a>
+                        <a href="/about" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-05s">About Us</a>
                     </div>
                 </div>
             </div>
@@ -160,8 +169,8 @@
                 <div class="carousel-caption banner-slider-inner banner-top-align">
                     <div class="text-left">
                         <h1 data-animation="animated fadeInDown delay-05s"><span>Best Place To</span><br> Find Home</h1>
-                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-05s">Get Started Now</a>
-                        <a href="#" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-05s">Learn More</a>
+                        <a href="#" class="btn button-md button-theme" data-animation="animated fadeInUp delay-05s" data-toggle="modal" data-target="#myModal">Get Started Now</a>
+                        <a href="/about" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-05s">About Us</a>
                     </div>
                 </div>
             </div>
@@ -183,6 +192,30 @@
     </div>
 </div>
 <!-- Banner end -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <center>
+          <a href="/designs" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-05s">Design Cat</a>
+          <a href="/professionals" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-05s">Build With Us</a>
+          <a href="/makeanappointment" class="btn button-md border-button-theme" data-animation="animated fadeInUp delay-05s">Make An Appointment</a>
+        </center>
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn button-md button-theme" data-animation="animated fadeInUp delay-05s"  data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Copy right start -->
 <div class="copy-right">
