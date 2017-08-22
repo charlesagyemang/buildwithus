@@ -253,6 +253,27 @@
 <script type="text/javascript" src="js/jquery.filterizr.js"></script>
 <script type="text/javascript" src="js/maps.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript">
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.smsgh.com/v3/messages/send?From=Finney&To=%2B233506193708&Content=TryTwo&ClientId=idtdhbtx&ClientSecret=ybgoupdp",
+    "method": "GET",
+    "headers": {
+    // "content-type": "application/json",
+    "cache-control": "no-cache",
+    "postman-token": "48bf0d85-ef05-8023-5757-c01184622093",
+    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+    },
+    "processData": false,
+    "data": "{\n\t\"From\": \"me\",\n\t\"To\" : \"+233506193708\",\n\t\"Content\" :\"Pooma!!\",\n\t\"ClientId\": \"idtdhbtx\",\n\t\"ClientSecret\": \"ybgoupdp\"\n}"
+    }
+
+    $.ajax(settings).done(function (response) {
+    console.log(response);
+    })
+</script>
+
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"></script>
