@@ -31,6 +31,60 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
 
+    <style>
+        .modal{
+        position: fixed;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%);
+        }
+
+                /* Dropdown Button */
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Dropdown button on hover & focus */
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #3e8e41;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        .show {display:block;}
+    </style>
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -93,10 +147,15 @@
                         Home
                     </a>
                 </li>
-                  <li class="dropdown">
+                  <li class="dropdown" id="btn-about-us">
                       <a tabindex="0" href="/about" aria-expanded="false">
                           About Us
                       </a>
+                      <div id="myDropdown" class="dropdown-content">
+                        <a href="/whoarewe">Who Are We?</a>
+                        <a href="/whatdowedo">What Do We Do?</a>
+                        <a href="/ourprocess">Our Process</a>
+                      </div>
                   </li>
                   <li class="dropdown active">
                       <a tabindex="0" href="/designs" aria-expanded="false">
@@ -157,7 +216,7 @@
                                 <span class="heading-icon">
                                     <i class="fa fa-search-large"></i>
                                 </span>
-                                <span class="hidden-xs">All Designs</span>
+                                <span class="hidden-xs">You Can Buy Our Designs Or Select Free Designs</span>
                             </h4>
                         </div>
 
@@ -308,6 +367,20 @@
 
 <!-- Custom javascript -->
 <script type="text/javascript" src="/js/ie10-viewport-bug-workaround.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('#btn-about-us').unbind('hover').hover(function(){
+      //alert("hey");
+      $('#myDropdown').show();
+    })
+
+    $('#btn-about-us').mouseleave(function(){
+      $('#myDropdown').hide();
+    })
+  })
+</script>
 
 </body>
 </html>
