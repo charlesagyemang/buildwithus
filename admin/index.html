@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Absolute Admin</title>
+        <title>The Nect</title>
         <meta name="keywords" content="HTML5,CSS3,Admin Template" />
         <meta name="description" content="" />
         <meta name="Author" content="Psd2allconversion [www.psd2allconversion.com]" />
@@ -42,14 +42,16 @@
                 <div class="page-header-inner ">
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
-                        <a href="index.html">
-                            <img src="assets/images/logo.png" alt="absolute admin" class="img-responsive logo-default"/> </a>
+                        <!-- <a href="index.html">
+                            <img src="assets/images/logo.png" alt="absolute admin" class="img-responsive logo-default"/> </a> -->
+                            <p><h2>Welcome</h2></p>
 
-                    </div><div class="menu-toggler sidebar-toggler">
+                    </div>
+                    <div class="menu-toggler sidebar-toggler">
                         <a href="javascript:;" class="navbar-minimalize minimalize-styl-2  pull-left "><i class="fa fa-bars"></i></a>
                     </div>
 
-                    <div class="search-bar">
+                    <!-- <div class="search-bar">
                         <form class="sidebar-search  " action="page_general_search_3.html" method="POST">
 
                             <div class="input-group">
@@ -57,7 +59,7 @@
 
                             </div>
                         </form>
-                    </div>
+                    </div> -->
                     <!-- END LOGO -->
 
                     <!-- BEGIN TOP NAVIGATION MENU -->
@@ -165,6 +167,7 @@
                             </li>
                             <!-- END NOTIFICATION DROPDOWN -->
                             <!-- BEGIN INBOX DROPDOWN -->
+                            <!--
                             <li class="dropdown dropdown-extended dropdown-notification" id="header_inbox_bar">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                     <i class="icon-envelope-open"></i>
@@ -220,10 +223,10 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <!-- END INBOX DROPDOWN -->
                             <!-- BEGIN TODO DROPDOWN -->
-                            <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
+                            <!-- <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                     <i class="icon-calendar"></i>
                                     <span class="badge badge-default"> <span class="ring">
@@ -333,7 +336,7 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <!-- END TODO DROPDOWN -->
                             <!-- BEGIN USER LOGIN DROPDOWN -->
                             <li class="dropdown dropdown-user">
@@ -350,7 +353,7 @@
                                         <a href="app_calendar.html">
                                             <i class="icon-calendar"></i> My Calendar </a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="app_inbox.html">
                                             <i class="icon-envelope-open"></i> My Inbox
                                             <span class="badge badge-danger"> 3 </span>
@@ -366,7 +369,7 @@
                                     <li>
                                         <a href="page_user_lock_1.html">
                                             <i class="icon-lock"></i> Lock Screen </a>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <a href="page_user_login_1.html">
                                             <i class="icon-key"></i> Log Out </a>
@@ -376,11 +379,11 @@
                             <!-- END USER LOGIN DROPDOWN -->
                             <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            <li class="dropdown dropdown-quick-sidebar-toggler">
+                            <!-- <li class="dropdown dropdown-quick-sidebar-toggler">
                                 <a href="javascript:;" class="dropdown-toggle">
                                     <i class="icon-logout"></i>
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- END QUICK SIDEBAR TOGGLER -->
                         </ul>
                     </div>
@@ -397,159 +400,41 @@
             <div class="page-container"> <aside class="sidebar">
                     <nav class="sidebar-nav">
                         <ul class="metismenu" id="menu">
-                            <li class="active">
-                                <a href="#"><i class="icon-grid"></i> <span class="nav-label">Dashboard</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse in">
-                                    <li><a href="index.html">Dashboard 1</a></li>
-                                    <li><a href="index-2.html">Dashboard 2</a></li>
-                                    <li><a href="index-3.html">Dashboard 3</a></li>
+                          <li class="active">
+                              <a href="#"><i class="icon-basket"></i> <span class="nav-label">Orders</span><span class="fa arrow"></span></a>
+                              <ul class="nav nav-second-level collapse in">
+
+                                  <li><a href="orders.html"><i class="fa fa-shopping-cart"></i> Received<span class="label label-rouded pull-right p3-bg note-icon"><h9 id="span-orders">New 0</h9></span></a></li>
+                                  <li><a href="order-detail.html"><i class="fa fa-spinner"></i> Processing </a></li>
+                                  <li><a href="order-invoice.html"><i class="fa fa-check"></i> Processed </a></li>
+
+                              </ul>
+                          </li>
+                            <li>
+                                <a href="#"><i class="fa fa-building-o"></i> <span class="nav-label">Plans</span><span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse ">
+                                    <li><a href="index.html"><i class="fa fa-plus"></i> Add Plan</a></li>
+                                    <li><a href="index-2.html"><i class="fa fa-edit"></i> Edit Plans</a></li>
+                                    <li><a href="index-3.html"><i class="fa fa-list"></i> View All Plans <span class="label label-rouded pull-right p3-bg note-icon"><h9 id="span-plans"> 0 </h9></span></a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="icon-basket"></i> <span class="nav-label">Ecommerce</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse">                               
-                                    <li><a href="products.html">Product List </a></li>
-                                    <li><a href="orders.html">Orders </a></li>
-                                    <li><a href="order-detail.html">Order Detail </a></li>
-                                    <li><a href="order-invoice.html">Order Invoice </a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="widgets.html"><i class="fa fa-cog"></i> <span class="nav-label">Widgets </span><span class="label label-rouded pull-right p3-bg note-icon">New 40+</span></a>
-
-                            </li>
-                            <li>
-                                <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li><a href="mailbox.html">Inbox</a></li>
-                                    <li><a href="mail_detail.html">Email view</a></li>
-                                    <li><a href="mail_compose.html">Compose email</a></li>
-                                </ul>
-                            </li><li class="nav-heading"><span>Components</span></li>
-                            <li>
-                                <a href="#"><i class="fa fa-bar-chart"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span><span class="label label-rouded pull-right p3-bg note-icon">6</span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li><a href="flot_charts.html">Flot charts</a></li>
-                                    <li><a href="morris_js.html">Morris.js</a></li>
-                                    <li><a href="chart_js.html">Chart.js</a></li>
-                                    <li><a href="c3.html">C3</a></li>
-
-
+                                <a href="#"><i class="fa fa-briefcase"></i> <span class="nav-label">Appointments</span><span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse ">
+                                    <li><a href="index.html"> <i class="fa fa-inbox"></i> Received <span class="label label-rouded pull-right p3-bg note-icon"><h9 id="span-appointments">New 0</h9></span> </a></li>
+                                    <li><a href="index-2.html"> <i class="fa fa-check"></i> Approved</a></li>
+                                    <li><a href="index-3.html"><i class="fa fa-check"></i><i class="fa fa-check"></i> Done</a></li>
                                 </ul>
                             </li>
 
-                            <li>
-                                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Forms</span><span class="fa arrow"></span><span class="label label-rouded pull-right p1-bg note-icon">11</span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li><a href="form_basic.html">Basic form</a></li>
-                                    <li><a href="form_advanced.html">Advanced form</a></li>
-                                    <li><a href="form_wizard.html">Wizard form</a></li>
-                                    <li><a href="form_masked.html">Masked form</a></li>
-                                    <li><a href="form_file_upload.html">File upload</a></li>
-                                    <li><a href="file_drop.html">File Dropzone</a></li>
-                                    <li><a href="form_text_editor.html">Text editor</a></li>
-                                    <li><a href="form_inline_edit.html">Inline edit</a></li>
-                                    <li><a href="form_validate.html">Form Validation</a></li>
-                                    <li><a href="form_tinymce.html">Tinymce Editor</a></li>
-                                    <li><a href="form_wysihtml5.html">WYSIHTML5 Editor</a></li>
-
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span><span class="fa arrow"></span><span class="label label-rouded pull-right p4-bg note-icon">8</span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li><a href="lockscreen.html">Lockscreen</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="404.html">404 Page</a></li>
-                                    <li><a href="empty_page.html">Empty page</a></li>
-                                    <li><a href="gallery.html">gallery</a></li>
-                                    <li><a href="price_tables.html">Price tables</a></li>
-                                    <li><a href="page_contact.html">Contact Page</a></li>
-                                </ul>
-                            </li>                     
 
                             <li>
-                                <a href="#"><i class="fa fa-hourglass-o"></i> <span class="nav-label">Icons</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li><a href="icons.html">Icons</a></li>
-                                    <li><a href="weather-icon.html">Weather Icons</a></li>
-                                    <li><a href="themifyicons.html">Themify Icons</a></li>
-                                    <li><a href="linea_arrows.html">Linea Arrows Icons</a></li>
-                                    <li><a href="linea_basic.html">Linea Basic Icons</a></li>                              
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">UI Elements</span><span class="fa arrow"></span><span class="label label-rouded pull-right p2-bg note-icon">16</span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="buttons.html">Buttons</a></li>
-                                    <li><a href="video.html">Video</a></li>
-                                    <li><a href="tabs_panels.html">Panels</a></li>
-                                    <li><a href="tabs.html">Tabs</a></li><li><a href="chat.html">Chat</a></li>
-                                    <li><a href="alert_notifications.html">Alert &amp; notifications</a></li>
-                                    <li><a href="tree_view.html">Tree View</a></li>
-                                    <li><a href="timeline.html">Time Line</a></li>
-                                    <li><a href="progress_bar.html">Progress Bar</a></li>
-                                    <li><a href="sliders.html">OWL Carousel</a></li>
-                                    <li><a href="range_slider.html">Range Slider</a></li>
-                                    <li><a href="alert_popup.html">Alert Popup</a></li>
-                                    <li><a href="accordion.html">Accordion</a></li>
-                                    <li><a href="models.html">Modals Popup</a></li>
-                                    <li><a href="toastr_alert.html">Toastr Alert</a></li>
-                                </ul>
+                                <a href="widgets.html"><i class="fa fa-cog"></i> <span class="nav-label">Settings</span></a>
+
                             </li>
 
-                            <li>
-                                <a href="grid_options.html"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-table"></i> <span class="nav-label">Tables</span><span class="fa arrow"></span><span class="label label-rouded pull-right p4-bg note-icon">5</span></a>
-                                <ul class="nav nav-second-level collapse"><li><a href="table_basic.html">Static Tables</a></li>
-                                    <li><a href="table_data_tables.html">Data Tables</a></li>
-                                    <li><a href="table_responsive.html">Responsive Tables</a></li>
-                                    <li><a href="table_editable.html">Editable Tables</a></li>
-                                    <li><a href="table_jsgrid.html">JSGrid Tables</a></li>
 
-                                </ul>
-                            </li><li class="nav-heading"><span>More</span></li>
-                            <li>
-                                <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Users</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li><a href="user_profile.html">profile</a></li>
-                                    <li><a href="user_list.html">User list</a></li>
 
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-map-marker"></i> <span class="nav-label">maps</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li><a href="google_maps.html">Google maps</a></li>
-                                    <li><a href="vector_maps.html">Vector Maps</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label">Blog</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li><a href="blog_list.html">Blog list</a></li>
-                                    <li><a href="blog_post.html">Blog post</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="calendar.html"><i class="fa fa-calendar"></i>  <span class="nav-label">Calendar </span></a></li>
-
-                            <li>
-                                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Menu Levels </span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li>
-                                        <a href="#">Third Level <span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level collapse">
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                        </ul>
-                                    </li> <li><a href="#">Second Level Item</a></li>
-                                </ul>
-                            </li><li class="nav-heading"><span>Extra</span></li>
 
                         </ul>
                         <!-- END SIDEBAR MENU -->
@@ -591,9 +476,9 @@
                                         <div class="row row-table">
                                             <div class="col-xs-5 text-center bg-dark card-content-right"><i class="icon-layers background-icon"></i></div>
                                             <div class="col-xs-7 text-center card-content-left">
-                                                <p class="card-stats-title right panel-title">Projects</p>
-                                                <h4 class="right panel-middle margin-b-0">3100</h4>
+                                                <p class="card-stats-title right panel-title">Plans</p>
                                             </div>
+                                              <h4 id="plans-display" style="margin-right: 0.2cm;" class="right panel-middle margin-b-0">2</h4>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -607,9 +492,9 @@
                                         <div class="row row-table">
                                             <div class="col-xs-5 text-center bg-dark card-content-right"><i class="icon-user background-icon"></i></div>
                                             <div class="col-xs-7 text-center card-content-left">
-                                                <p class="card-stats-title right panel-title">All Users</p>
-                                                <h4 class="right panel-middle margin-b-0">6,782</h4>
+                                                <p class="card-stats-title right panel-title">Users</p>
                                             </div>
+                                              <h4 id="users-display" style="margin-right: 0.2cm;" class="right panel-middle margin-b-0">2</h4>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -624,9 +509,9 @@
                                         <div class="row row-table">
                                             <div class="col-xs-5 text-center bg-dark card-content-right"><i class="icon-list background-icon"></i></div>
                                             <div class="col-xs-7 text-center card-content-left">
-                                                <p class="card-stats-title right panel-title">Total TODO</p>
-                                                <h4 class="right panel-middle margin-b-0">6,782</h4>
+                                                <p class="card-stats-title right panel-title">Orders</p>
                                             </div>
+                                              <h4 id="ord-display" style="margin-right: 0.2cm;" class="right panel-middle margin-b-0">2</h4>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -641,13 +526,12 @@
                                         <div class="row row-table">
                                             <div class="col-xs-5 text-center bg-dark card-content-right"><i class="icon-like  background-icon"></i></div>
                                             <div class="col-xs-7 text-center card-content-left">
-                                                <p class="card-stats-title right panel-title">Todo Completed</p>
-                                                <h4 class="right panel-middle margin-b-0">1782</h4>
+                                                <p class="card-stats-title right panel-title">Appointments</p>
                                             </div>
+                                              <h4 id="apmt-display" style="margin-right: 0.2cm;" class="right panel-middle margin-b-0">2</h4>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-
 
                                 </div>
                             </div>
@@ -659,7 +543,7 @@
                                 <div class="panel panel-card recent-activites">
                                     <!-- Start .panel -->
                                     <div class="panel-heading">
-                                        All Tasks
+                                        All Orders
                                         <div class="pull-right">
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-info btn-rounded btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></button>
@@ -676,13 +560,13 @@
                                     <div class="panel-body text-center">
                                         <div id="piechart"></div>
                                     </div>
-                                </div><!-- End .panel --> 
+                                </div><!-- End .panel -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="panel panel-card recent-activites">
                                     <!-- Start .panel -->
                                     <div class="panel-heading">
-                                        All Projects
+                                      General Overview
                                         <div class="pull-right">
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-info btn-rounded btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></button>
@@ -699,21 +583,32 @@
                                     <div class="panel-body text-center">
                                         <div id="columnchart_material" ></div>
                                     </div>
-                                </div><!-- End .panel --> 
+                                </div><!-- End .panel -->
                             </div>
 
                         </div>
 
                         <div class="row">
+                        <!-- <div class="col-lg-12">
+                          <div class="panel panel-card recent-activites">
+                            <div class="panel-heading">
+                              <center>
+                                <h3>Recent Orders</h3>
+                              </center>
+
+                            </div>
+                          </div>
+                        </div> -->
+
                             <div class="col-sm-6">
 
                                 <div class="dashboard-pinned-project dashboard-pinned-project-1 url-link" >
 
                                     <div class="dashboard-pinned-project-header x-header"> <span class="project-client-name"><i class="icon-user"></i>
-                                            Apple Inc
+                                            Appointments
                                         </span> <span class="project-title">
-                                            Iphone 8 Design Conecpts
-                                        </span>  
+                                            Summary Of Appointments
+                                        </span>
                                         <span class="x-icon-contaner x-icon"><i class="icon-pushpin"></i></span>
                                     </div>
                                     <ul class="dashboard-pinned-project-footer">
@@ -721,19 +616,19 @@
                                             <div class="text-count">
                                                 44
                                                 %</div>
-                                            <div class="text-description text-muted">Complete</div>
+                                            <div class="text-description text-muted">Booked</div>
                                         </li>
                                         <li class="border-right">
                                             <div class="text-count">
                                                 3
                                             </div>
-                                            <div class="text-description text-muted">My Tasks</div>
+                                            <div class="text-description text-muted">Due Today</div>
                                         </li>
                                         <li>
                                             <div class="text-count">
                                                 459
                                             </div>
-                                            <div class="text-description text-muted">Days Due</div>
+                                            <div class="text-description text-muted">Done</div>
                                         </li>
                                     </ul>
                                 </div>
@@ -742,10 +637,10 @@
 
                                 <div class="dashboard-pinned-project dashboard-pinned-project-2 url-link orange" >
 
-                                    <div class="dashboard-pinned-project-header x-header"> <span class="project-client-name"><i class="icon-user"></i>
-                                            Microsoft Inc
+                                    <div class="dashboard-pinned-project-header x-header"> <span class="project-client-name"><i class="fa fa-building-o"></i>
+                                          Plans Breakdown
                                         </span> <span class="project-title">
-                                            Samsung Design Conecpts
+                                            Overview Of Plans
                                         </span>  <span class="x-icon-contaner x-icon"><i class="icon-pushpin"></i></span></div>
                                     <ul class="dashboard-pinned-project-footer">
                                         <li class="border-right">
@@ -772,10 +667,10 @@
                             <div class="col-sm-6">
                                 <div class="dashboard-pinned-project dashboard-pinned-project-3 url-link ">
 
-                                    <div class="dashboard-pinned-project-header x-header teal"> <span class="project-client-name"><i class="icon-user"></i>
-                                            Microsoft Inc
+                                    <div class="dashboard-pinned-project-header x-header teal"> <span class="project-client-name"><i class="fa fa-check"></i>
+                                            Orders
                                         </span> <span class="project-title">
-                                            Sony Phone Design Conecpts
+                                            Overhead View Of Orders
                                         </span>  <span class="x-icon-contaner x-icon"><i class="icon-pushpin"></i></span></div>
                                     <ul class="dashboard-pinned-project-footer">
                                         <li class="border-right">
@@ -803,9 +698,9 @@
                                 <div class="dashboard-pinned-project dashboard-pinned-project-4 url-link ">
 
                                     <div class="dashboard-pinned-project-header x-header green"> <span class="project-client-name"><i class="icon-user"></i>
-                                            Microsoft Inc
+                                            Users
                                         </span> <span class="project-title">
-                                            Nokia Design Conecpts
+                                            Userbase Analytics
                                         </span>  <span class="x-icon-contaner x-icon"><i class="icon-pushpin"></i></span></div>
                                     <ul class="dashboard-pinned-project-footer">
                                         <li class="border-right">
@@ -832,150 +727,8 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
 
-
-                                <div class="panel panel-card recent-activites">
-                                    <!-- Start .panel -->
-                                    <div class="panel-heading">
-                                        My Projects - Events Timeline
-                                        <div class="pull-right">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-info btn-rounded btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></button>
-                                                <ul class="dropdown-menu panel-dropdown" role="menu">
-                                                    <li><a href="#">Action</a></li>
-                                                    <li><a href="#">Another action</a></li>
-                                                    <li><a href="#">Something else here</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#">Separated link</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel-body">
-
-                                        <div class="timeline-item">
-                                            <div class="row">
-                                                <div class="col-sm-3 date left">
-                                                    <i class="fa fa-th-large"></i>
-                                                    6:00 am
-                                                    <br>
-                                                    <small class="text-navy">2 hour ago</small>
-                                                </div>
-                                                <div class="col-sm-9 content no-top-border ">
-                                                    <p class="m-b-xs"><strong>Meeting</strong></p>
-
-                                                    <p>Conference on the sales results for the previous year. Monica please examine sales trends in marketing and products.</p>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-item">
-                                            <div class="row">
-                                                <div class="col-sm-3 date left">
-                                                    <i class="fa fa-th-large"></i>
-                                                    6:00 am
-                                                    <br>
-                                                    <small class="text-navy">2 hour ago</small>
-                                                </div>
-                                                <div class="col-sm-9 content no-top-border ">
-                                                    <p class="m-b-xs"><strong>Meeting</strong></p>
-
-                                                    <p>Conference on the sales results for the previous year. Monica please examine sales trends in marketing and products.</p>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-item">
-                                            <div class="row">
-                                                <div class="col-sm-3 date left">
-                                                    <i class="fa fa-th-large"></i>
-                                                    6:00 am
-                                                    <br>
-                                                    <small class="text-navy">2 hour ago</small>
-                                                </div>
-                                                <div class="col-sm-9 content no-top-border ">
-                                                    <p class="m-b-xs"><strong>Meeting</strong></p>
-
-                                                    <p>Conference on the sales results for the previous year. Monica please examine sales trends in marketing and products.</p>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div><!-- End .panel --> 
-
-
-                            </div>
-                            <div class="col-md-6">
-
-
-                                <div class="panel panel-card recent-activites">
-                                    <!-- Start .panel -->
-                                    <div class="panel-heading">
-                                        Latest Todo
-                                        <div class="pull-right">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-info btn-rounded btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></button>
-                                                <ul class="dropdown-menu panel-dropdown" role="menu">
-                                                    <li><a href="#">Action</a></li>
-                                                    <li><a href="#">Another action</a></li>
-                                                    <li><a href="#">Something else here</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#">Separated link</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel-body">
-
-                                        <div class="margin-t-10">
-
-                                            <div class="black-text message-content">
-                                                <div>
-                                                    <small class="right teal-text">1m ago</small>
-                                                    <strong>Monica Smith</strong>
-                                                    <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</div>
-                                                    <small class="text-muted">Today 5:60 pm - 12.06.2014</small>
-
-                                                </div>
-                                            </div>
-                                            <div class="black-text message-content">
-                                                <div>
-                                                    <small class="right teal-text">1m ago</small>
-                                                    <strong>Monica Smith</strong>
-                                                    <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</div>
-                                                    <small class="text-muted">Today 5:60 pm - 12.06.2014</small>
-
-                                                </div>
-                                            </div>
-                                            <div class="black-text message-content">
-                                                <div>
-                                                    <small class="right teal-text">1m ago</small>
-                                                    <strong>Monica Smith</strong>
-                                                    <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</div>
-                                                    <small class="text-muted">Today 5:60 pm - 12.06.2014</small>
-
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- End .panel --> 
-
-
-                            </div>
-                        </div>
-
-
-
-
-
-                    </div> 
+                    </div>
                     <div class="clearfix"></div>
                     <div class="footer">
                         <div class="pull-right">
@@ -1006,12 +759,13 @@
 
 
         <!-- JAVASCRIPT FILES -->
+        <script src="http://buildgallery.herokuapp.com/js/devless-sdk.js" class="devless-connection" devless-con-token="41b1f8b6dd4823f63f8eeed626bfafa8"></script>
 
         <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="assets/plugins/metis-menu/metisMenu.min.js"></script>
         <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/plugins/slim-scroll/jquery.slimscroll.min.js"></script>
-        <script src="assets/plugins/c3/d3.v3.min.js" charset="utf-8"></script>       
+        <script src="assets/plugins/c3/d3.v3.min.js" charset="utf-8"></script>
         <script src="assets/plugins/c3/c3.min.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="assets/plugins/calendar/moment.min.js"></script>
@@ -1028,5 +782,6 @@
         <!-- Custom FILES -->
         <script type="text/javascript" src="assets/js/custom.js"></script>
         <script type="text/javascript" src="assets/js/index-2.js"></script>
+        <script type="text/javascript" src="assets/js/customjs.js"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 !function($) {
     "use strict";
 $(function(){
-	
+
 	//pie chart
        c3.generate({
         bindto: '#piechart',
@@ -9,20 +9,19 @@ $(function(){
             columns: [
                 ['Pending', 30],
                 ['Completed', 70],
-				 ['Behind', 50]
+
             ],
             colors: {
                 Pending: '#F44336',
-                Completed: '#00bcd4',
-				Behind:'#4CAF50'
+                Completed: '#00bcd4'
             },
             type: 'pie'
         }
     });
     });
- 
-	/// Monthaly Project report
-	
+
+
+/// Monthaly Project report
 var chart = c3.generate({
 	bindto: '#columnchart_material',
     data: {
@@ -30,7 +29,7 @@ var chart = c3.generate({
             ['Projects', 30, 200, 100, 400, 150, 250],
             ['Todo', 50, 20, 10, 40, 15, 25],
             ['Users', 130, 220, 140, 200, 250, 450],
-            
+
         ]
     },
     color: {
@@ -40,5 +39,5 @@ var chart = c3.generate({
 	$('.vcarousel').carousel({
             interval: 3000
          })
-	  
-	}(window.jQuery);	
+
+	}(window.jQuery);
