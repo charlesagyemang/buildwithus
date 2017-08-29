@@ -90,10 +90,11 @@ $(document).ready(function(){
         file: mainImageUrl,
         images: otherImagesUrls
       }
-      $this.text("Adding..")
+
 
       if (name.length > 0 && price.length > 0 && description.length > 0 && mainImageUrl.length > 0  && otherImagesUrls.length >0)
       {
+        $this.text("Adding..")
         SDK.addData("plans", "plans_table", postJsonBody,  function(response){
           if (response.status_code == 609) {
             // success
@@ -107,10 +108,11 @@ $(document).ready(function(){
         })
 
       } else {
-        
+
         alert("make sure name, description and price fields are not left empty and please upload the main image too if youve not  done that and Yh one more thing please add at least one other image ok. Thanks")
       }
   })
+
 
 
 })
