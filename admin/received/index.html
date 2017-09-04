@@ -406,22 +406,22 @@
 
                                   <li class="active"><a href="#"><i class="fa fa-shopping-cart"></i> Received<span class="label label-rouded pull-right p3-bg note-icon"><h9 id="span-orders">New 0</h9></span></a></li>
                                   <li><a href="../processing"><i class="fa fa-spinner"></i> Processing </a></li>
-                                  <li><a href="order-invoice.html"><i class="fa fa-check"></i> Processed </a></li>
+                                  <li><a href="../processed"><i class="fa fa-check"></i> Processed </a></li>
 
                               </ul>
                           </li>
                             <li>
                                 <a href="#"><i class="fa fa-building-o"></i> <span class="nav-label">Plans</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level collapse ">
-                                    <li><a href="index.html"><i class="fa fa-plus"></i> Add Plan</a></li>
-                                    <li><a href="index-2.html"><i class="fa fa-edit"></i> Edit Plans</a></li>
-                                    <li><a href="index-3.html"><i class="fa fa-list"></i> View All Plans <span class="label label-rouded pull-right p3-bg note-icon"><h9 id="span-plans"> 0 </h9></span></a></li>
+                                    <li><a id="modal-add-plan-left" href="#" data-toggle="modal" data-target="#addAPlanModal"><i class="fa fa-plus"></i> Add Plan</a></li>
+                                    <li><a href="../edit_plans"><i class="fa fa-edit"></i> Edit Plans</a></li>
+                                    <li><a href="../all_plans"><i class="fa fa-list"></i> View All Plans <span class="label label-rouded pull-right p3-bg note-icon"><h9 id="span-plans"> 0 </h9></span></a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-briefcase"></i> <span class="nav-label">Appointments</span><span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level collapse ">
-                                    <li><a href="index.html"> <i class="fa fa-inbox"></i> Received <span class="label label-rouded pull-right p3-bg note-icon"><h9 id="span-appointments">New 0</h9></span> </a></li>
+                                    <li><a href="../appointments"><i class="fa fa-inbox"></i> Received <span class="label label-rouded pull-right p3-bg note-icon"><h9 id="span-appointments">New 0</h9></span> </a></li>
                                     <li><a href="index-2.html"> <i class="fa fa-check"></i> Approved</a></li>
                                     <li><a href="index-3.html"><i class="fa fa-check"></i><i class="fa fa-check"></i> Done</a></li>
                                 </ul>
@@ -466,6 +466,54 @@
                         </div><!-- end .page title-->
 
 
+
+                        <div id="addAPlanModal" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <center>
+                                  <h4 class="modal-title">Add A Plan</h4>
+                                </center>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-12">
+                                  <div class="col-lg-3">
+
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <br>
+                                    <label for="name">Name</label><br>
+                                    <input  id="input-name" class="form-control" type="text" name="name" value="">
+                                    <label for="price">Price</label><br>
+                                    <input id="input-price" class="form-control" type="text" name="price" value=""><br>
+
+                                    <button id="btn-main-image" class="btn btn-primary" type="button" name="mImage">Upload main image</button>
+                                    <label  id="label-mImage" for="mImage">No Image Uploaded Yet</label><br> <br>
+                                    <label for="description">Description</label><br>
+                                    <textarea id="txt-description" class="form-control"  name="description" value=""></textarea><br>
+
+                                    <button id="btn-other-images" class="btn btn-primary" type="button" name="mImage">Upload other images</button>
+                                    <label  id="label-other-images" for="otherImages">Images Not Uploaded Yet</label><br>
+                                  </div>
+                                  <div class="col-lg-3">
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-body">
+
+                              </div>
+                              <div class="modal-footer">
+                                <button id="modal-close-plan" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button id="btn-add-plan-devless" type="button" class="btn btn-primary">Add Plan </button>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
 
 
 

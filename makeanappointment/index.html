@@ -186,8 +186,19 @@
     </div>
 </header>
 <!-- Main header end -->
-<div class="">
-  <center><h1>Make An Appointement</h1>
+<div class="container-fluid">
+  <center>
+
+      <form class="dv-add-oneto:appointements:appointements_table">
+        <br>
+        <div class="dv-notify-success"      style ="color: green">Successful</div>
+        <div class="dv-notify-failed"       style ="color: red">Failed</div><br><br>
+          <input     class="form-control"   type="text" name="name"   placeholder="name"><br>
+          <input     class="form-control"   type="date" name="day"    placeholder="day"><br>
+          <input     class="form-control"   type="time" name="time"   placeholder="time"><br>
+          <textarea  class="form-control"   type="text" name="reason"   placeholder="reason"></textarea><br>
+          <button    class="btn btn-primary form-control" type="submit">Submit</button>
+      </form>
 
   </center><br /><br><br><br><br><br><br><br><br><br><br /><br><br><br><br><br><br><br><br><br>
 </div>
@@ -395,6 +406,10 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
+    //btn-appointment-submit
+    $("#btn-appointment-submit").click(function(){
+      alert("hey")
+    })
     $('#btn-about-us').unbind('hover').hover(function(){
       //alert("hey");
       $('#myDropdown').show();

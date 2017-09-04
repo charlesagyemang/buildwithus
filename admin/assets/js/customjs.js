@@ -14,16 +14,16 @@ $(document).ready(function(){
   var mainImageUrl    = "";
   var otherImagesUrls = "";
 
+
   // Plans table On Devless
   SDK.queryData("plans", "plans_table", params, function(response){
     var value = response.payload.results.length
     plansDisplay.text(value);
     spanPlans.text(value);
-
   });
 
   // Appointments Table
-  SDK.queryData("plans", "appointments_table", params, function(response){
+  SDK.queryData("appointements", "appointements_table", params, function(response){
     var value = response.payload.results.length
     apmtDisplay.text(value);
     spanApmt.text(value);
