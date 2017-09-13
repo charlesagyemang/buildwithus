@@ -277,6 +277,12 @@
       $("#complete-gmail-signup").click(function(){
         // If phone aint empty
 
+        if (phoneNumber.length > 0) {
+          alert("full")
+        } else {
+          alert("empty")
+        }
+
         /*
         SDK.call('devless', 'signUp', signUpBody,function(resp){
           if (resp.payload.result.token) {
