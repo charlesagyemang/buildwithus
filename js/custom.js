@@ -17,6 +17,7 @@ function getCookie(cname) {
 
 
 $(document).ready(function(){
+  var userProfile = $.parseJSON(getCookie("user"));
   console.log("===customjs===", "hey Im here");
-  console.log(getCookie("user"));
+  console.log("===UserProfile===",userProfile);
 })
