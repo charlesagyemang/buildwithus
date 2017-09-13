@@ -230,7 +230,10 @@
           var accessToken = response.accessToken;
           var expiresIn   = response.expiresIn;
           var userID      = response.userID;
-          console.log(response);
+          console.log("fbResponse", fbResponse);
+          console.log("accessToken", accessToken);
+          console.log("expiresIn", expiresIn);
+          console.log("userID", userID);
           //window.location.href = "/"
         } else {
 
@@ -243,6 +246,14 @@
         FB.login(function(resp){
           console.log(resp);
           if (resp.status === "connected"){
+            var fbResponse  = response.authResponse;
+            var accessToken = response.accessToken;
+            var expiresIn   = response.expiresIn;
+            var userID      = response.userID;
+            console.log("fbResponse_loginBtn",  fbResponse);
+            console.log("accessToken_loginBtn", accessToken);
+            console.log("expiresIn_loginBtn",   expiresIn);
+            console.log("userID_loginBtn",      userID);
             //window.location.href = "/";
           }
         })
