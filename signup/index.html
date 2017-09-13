@@ -277,10 +277,10 @@
       $("#complete-gmail-signup").click(function(){
         // If phone aint empty
 
-        if (phoneNumber.length > 0) {
+        if ($("#phone-number").val().length > 0) {
           alert("full")
         } else {
-          alert("empty")
+          alert($("#phone-number").val());
         }
 
         /*
