@@ -235,8 +235,10 @@
          //console.log("ID Token: " + id_token);
 
          // declare email and password variables
-         var password     = "mockervit{}" + email + givenName + "alovert";
+
          var email        = profile.getEmail();
+         var givenName    = profile.getGivenName();
+         var password     = createPass(email, givenName);
          var loginBody    = ['', email, '', password];
 
          SDK.call('devless', 'login', loginBody, function(response){
