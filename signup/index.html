@@ -285,7 +285,8 @@
               // Log guy in with the magic password and the
               var loginBody = ['', email, '', password];
               SDK.call('devless', 'login', loginBody, function(response){
-                SDK.setToken(response.payload.result)
+                SDK.setToken(response.payload.result.token);
+                console.log(response.payload.result);
 
               });
 
