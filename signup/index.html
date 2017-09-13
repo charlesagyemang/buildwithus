@@ -175,7 +175,7 @@
                             <div  class="form-group">
                               <div  id="sm-buttons"class="">
                                 <button id="btn-send" type="button" class="button-md button-theme btn-block">Signup</button><br  />
-                                <button id="btn-fb-login" class="loginBtn loginBtn--facebook" type="button" name="button">Signup With Facebook</button>
+                                <button id="btn-fb-login" class="loginBtn loginBtn--facebook hide" type="button" name="button">Signup With Facebook</button>
                                 <center>
                                   <br  />
                                   <div class="g-signin2" style="width: 200px" data-onsuccess="onSignedIn"></div>
@@ -376,7 +376,7 @@
           var userID      = fbResponse.userID;
 
           //console.log("fbResponse", fbResponse);
-          
+
           console.log("accessToken", accessToken);
           console.log("expiresIn", expiresIn);
           console.log("userID", userID);
