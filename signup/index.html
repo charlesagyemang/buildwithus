@@ -221,6 +221,62 @@
 
      // Set cookies functions
 
+     // gmail login status
+     function onSignedIn(googleUser) {
+     //  Useful data for your client-side scripts:
+     //  console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+     //  console.log('Full Name: ' + profile.getName());
+     //  console.log('Given Name: ' + profile.getGivenName());
+     //  console.log('Family Name: ' + profile.getFamilyName());
+     //  console.log("Image URL: " + profile.getImageUrl());
+     //  console.log("Email: " + profile.getEmail());
+
+      var profile      = googleUser.getBasicProfile();
+      var idToken      = googleUser.getAuthResponse().id_token;
+      var email        = profile.getEmail();
+      var givenName    = profile.getGivenName();
+      var phoneNumber  = $("#phone-number").val();
+
+      //console.log("profile", profile);
+      console.log("id_token" , idToken);
+      console.log("email", email);
+      console.log("givenname" , givenName);
+
+
+      var password     = email + givenName + idToken;
+      var signUpBody   = [email, password, '', phoneNumber, givenName, '', '']
+
+
+        // fill the boxes with details just for the show and unhide the nanny
+        //$("#email").val(email);
+       // $("#fullname").val(givenName);
+
+       // hide password field and other unrelevant fields
+
+       // sign up on a button click
+      $("#complete-gmail-signup").click(function(){
+        /*
+        SDK.call('devless', 'signUp', signUpBody,function(resp){
+          if (resp.payload.result.token) {
+            SDK.setToken(resp.payload.result.token);
+            console.log(resp.payload.result)
+
+          } else {
+            console.log(resp);
+          }
+
+        });
+        */
+      })
+
+
+        // Redirect to the page required after signup successfull
+        // window.location.href = "/";
+    };
+
+
+
+
 
     $(document).ready(function(){
       //Facebook login status
@@ -258,60 +314,6 @@
           }
         })
       })
-
-
-      // gmail login status
-      function onSignedIn(googleUser) {
-      //  Useful data for your client-side scripts:
-      //  console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-      //  console.log('Full Name: ' + profile.getName());
-      //  console.log('Given Name: ' + profile.getGivenName());
-      //  console.log('Family Name: ' + profile.getFamilyName());
-      //  console.log("Image URL: " + profile.getImageUrl());
-      //  console.log("Email: " + profile.getEmail());
-
-       var profile      = googleUser.getBasicProfile();
-       var idToken      = googleUser.getAuthResponse().id_token;
-       var email        = profile.getEmail();
-       var givenName    = profile.getGivenName();
-       var phoneNumber  = $("#phone-number").val();
-
-       //console.log("profile", profile);
-       console.log("id_token" , idToken);
-       console.log("email", email);
-       console.log("givenname" , givenName);
-
-
-       var password     = email + givenName + idToken;
-       var signUpBody   = [email, password, '', phoneNumber, givenName, '', '']
-
-
-         // fill the boxes with details just for the show and unhide the nanny
-         //$("#email").val(email);
-        // $("#fullname").val(givenName);
-
-        // hide password field and other unrelevant fields
-
-        // sign up on a button click
-       $("#complete-gmail-signup").click(function(){
-         /*
-         SDK.call('devless', 'signUp', signUpBody,function(resp){
-           if (resp.payload.result.token) {
-             SDK.setToken(resp.payload.result.token);
-             console.log(resp.payload.result)
-
-           } else {
-             console.log(resp);
-           }
-
-         });
-         */
-       })
-
-
-         // Redirect to the page required after signup successfull
-         // window.location.href = "/";
-     };
 
 
 
