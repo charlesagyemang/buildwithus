@@ -145,6 +145,7 @@
                         <!-- Main title -->
                         <div class="main-title">
                             <h1><span>Signup</span></h1>
+                            <h3 id="complete-gmail-signup-message"><span>Signup</span></h3>
                         </div>
                         <!-- orm start-->
                         <form>
@@ -158,7 +159,12 @@
                              </div>
 
                              <div class="form-group">
-                                 <input  id="phone-number" type="text" name="phone-number" class="input-text" placeholder="Phone Number">
+                                <pre>
+                                  +233
+                                  <input  id="phone-number" type="text" name="phone-number" class="input-text" placeholder="phone">
+
+                                </pre>
+
                              </div>
 
                             <div id="sign-up-group-two" class="">
@@ -269,10 +275,13 @@
        $("#link-go-back-to-sign-in").addClass("hide");
        $("#sign-up-group-two").addClass("hide");
        $("#sign-up-group-one").addClass("hide");
+       $("#complete-gmail-signup-message").val("Hi dear " +  givenName + " please enter your phone number and hit on the complete signup button. Thanks");
 
 
        // sign up on a button click
       $("#complete-gmail-signup").click(function(){
+        // If phone aint empty
+
         /*
         SDK.call('devless', 'signUp', signUpBody,function(resp){
           if (resp.payload.result.token) {
