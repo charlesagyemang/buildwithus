@@ -222,11 +222,6 @@
      // Set cookies functions
 
 
-
-
-
-
-
     $(document).ready(function(){
       //Facebook login status
       FB.getLoginStatus(function(response) {
@@ -270,8 +265,10 @@
        var givenName    = profile.getGivenName();
        var phoneNumber  = $("#phone-number").val();
 
-       console.log(profile);
-       console.log(idToken);
+       console.log("profile", profile);
+       console.log("id_token" , idToken);
+       console.log("email", email);
+       console.log("givenname" , givenName);
 
 
        var password     = email + givenName + idToken;
