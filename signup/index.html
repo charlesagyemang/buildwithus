@@ -316,7 +316,7 @@
               SDK.setToken(resp.payload.result.token);
               console.log(resp.payload.result)
               // save in user cookie
-              setCookie("user", JSON.stringify(result), 900000)
+              setCookie("user", JSON.stringify(resp.payload.result), 900000)
 
               // redirect to after signup path
 
