@@ -275,7 +275,7 @@
           // sign them up on devless
           var signUpBody   = [email, password, '', $("#phone-number").val(), givenName, '', '']
           SDK.call('devless', 'signUp', signUpBody,function(resp){
-            if (resp.payload.result.token !== "undefined") {
+            if (resp.payload.result.token != undefined ) {
               SDK.setToken(resp.payload.result.token);
               console.log(resp.payload.result)
             } else {
