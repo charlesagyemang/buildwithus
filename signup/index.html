@@ -230,8 +230,6 @@
       //  console.log("Image URL: " + profile.getImageUrl());
       //  console.log("Email: " + profile.getEmail());
 
-
-
        var profile      = googleUser.getBasicProfile();
        var idToken      = googleUser.getAuthResponse().id_token;
        var email        = profile.getEmail();
@@ -247,7 +245,8 @@
 
 
          // fill the boxes with details just for the show and unhide the nanny
-
+         $("#email").val(email);
+         $("#fullname").val(givenName);
 
         // hide password field and other unrelevant fields
 
