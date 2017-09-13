@@ -318,7 +318,7 @@
               // save in user cookie
               setCookie("user", JSON.stringify(resp.payload.result), 900000)
 
-              // redirect to after signup pat
+              // redirect to after signup path
 
             } else {
               // Already signed in now redirect to log in or go straight to the main page
@@ -330,7 +330,7 @@
                 SDK.setToken(response.payload.result.token);
                 console.log(response.payload.result);
                 //  save in user cookie
-                setCookie("user", JSON.stringify(result), 900000)
+                setCookie("user", JSON.stringify(response.payload.result), 900000)
 
 
                 // Redirect to main page
