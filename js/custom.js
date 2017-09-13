@@ -20,6 +20,6 @@ $(document).ready(function(){
   var userData = $.parseJSON(getCookie("user")).profile;
   console.log("===customjs===", "hey Im here");
   console.log("===UserFirstName===",userData.first_name);
-  $("#link-register").val(userData.first_name);
+  $("#link-register").html(userData.first_name);
   $("#link-login").addClass("hide");
 })
