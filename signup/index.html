@@ -279,14 +279,14 @@
               SDK.setToken(resp.payload.result.token);
               console.log(resp.payload.result)
             } else {
-              console.log(resp.payload.error.message);
+              // Already signed in now redirect to log in or go straight to the main page
+              console.log("Already signed up with this account. Welcome back " +  givenName);
             }
 
           });
 
-          alert($("#phone-number").val());
         } else {
-          alert($("#phone-number").val());
+          alert("Phone Number Shouldnt be empty");
         }
 
         /*
