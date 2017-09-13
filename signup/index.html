@@ -310,7 +310,7 @@
         // If phone ain't empty
         if ($("#phone-number").val().length > 0 && $("#phone-number").val().length < 11 ) {
           // sign them up on devless
-          var signUpBody   = [email, password, '', $("#phone-number").val(), givenName, '', '']
+          var signUpBody   = [email, password, '', $("#phone-number").val().trim(), givenName, '', '']
           SDK.call('devless', 'signUp', signUpBody,function(resp){
             if (resp.payload.result !== undefined ) {
               SDK.setToken(resp.payload.result.token);
@@ -321,8 +321,7 @@
               // redirect to after signup path
 
             } else {
-              // Already signed in now redirect to log in or go straight to the main page
-              console.log("Already signed up with this account. Welcome back " +  givenName);
+
 
               // Log guy in with the magic password and the
               var loginBody = ['', email, '', password];
@@ -330,6 +329,9 @@
 
                 // check if response.payload.result is not false
                 if (response.payload.result != false) {
+                  // Already signed in now redirect to log in or go straight to the main page
+                  console.log("Already signed up with this account. Welcome back " +  givenName);
+                  
                   SDK.setToken(response.payload.result.token);
                   console.log(response.payload.result);
                   //  save in user cookie
