@@ -16,7 +16,7 @@ function getCookie(cname) {
 }
 
 
-$(document).ready(functio(){
+$(document).ready(function(){
   console.log("===customjs===", "hey Im here");
   console.log(getCookie("user"));
 })
