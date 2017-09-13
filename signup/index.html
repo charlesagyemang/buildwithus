@@ -221,6 +221,40 @@
 
      // Set cookies functions
 
+
+
+
+
+
+
+    $(document).ready(function(){
+      //Facebook login status
+      FB.getLoginStatus(function(response) {
+        if (response.status === "connected") {
+          var fbResponse  = response.authResponse;
+          var accessToken = response.accessToken;
+          var expiresIn   = response.expiresIn;
+          var userID      = response.userID;
+          console.log(response);
+          //window.location.href = "/"
+        } else {
+
+        }
+      });
+
+      // login using facebook
+      $("#btn-fb-login").click(function(){
+        //Use this logic in a button
+        FB.login(function(resp){
+          console.log(resp);
+          if (resp.status === "connected"){
+            //window.location.href = "/";
+          }
+        })
+      })
+
+
+      // gmail login status
       function onSignedIn(googleUser) {
       //  Useful data for your client-side scripts:
       //  console.log("ID: " + profile.getId()); // Don't send this directly to your server!
@@ -273,31 +307,6 @@
 
 
 
-
-
-
-
-    $(document).ready(function(){
-      //Facebook login status
-      FB.getLoginStatus(function(response) {
-        if (response.status === "connected") {
-          console.log(response);
-          //window.location.href = "/"
-        } else {
-
-        }
-      });
-
-      // login using facebook
-      $("#btn-fb-login").click(function(){
-        //Use this logic in a button
-        FB.login(function(resp){
-          console.log(resp);
-          if (resp.status === "connected"){
-            //window.location.href = "/";
-          }
-        })
-      })
 
       $("#btn-send").click(function(){
         var email           = $("#email").val();
