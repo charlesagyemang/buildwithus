@@ -148,21 +148,28 @@
                         </div>
                         <!-- orm start-->
                         <form>
-                            <div class="form-group">
-                                <input id="fullname" type="text" name="fullname" class="input-text" placeholder="Full Name">
+                            <div id="sign-up-group-one" class="">
+                              <div class="form-group">
+                                  <input id="fullname" type="text" name="fullname" class="input-text" placeholder="Full Name">
+                              </div>
+                              <div class="form-group">
+                                  <input  id="email" type="email" name="email" class="input-text" placeholder="Email Address">
+                              </div>
+                             </div>
+
+                             <div class="form-group">
+                                 <input  id="phone-number" type="text" name="phone-number" class="input-text" placeholder="Phone Number">
+                             </div>
+
+                            <div id="sign-up-group-two" class="">
+                              <div class="form-group">
+                                  <input  id="password" type="password" name="password" class="input-text" placeholder="Password">
+                              </div>
+                              <div class="form-group">
+                                  <input  id="password_confirm" type="password" name="confirm_Password" class="input-text" placeholder="Confirm Password">
+                              </div>
                             </div>
-                            <div class="form-group">
-                                <input  id="email" type="email" name="email" class="input-text" placeholder="Email Address">
-                            </div>
-                            <div class="form-group">
-                                <input  id="phone-number" type="text" name="phone-number" class="input-text" placeholder="Phone Number">
-                            </div>
-                            <div class="form-group">
-                                <input  id="password" type="password" name="password" class="input-text" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <input  id="password_confirm" type="password" name="confirm_Password" class="input-text" placeholder="Confirm Password">
-                            </div>
+
 
                             <div  class="form-group">
                               <div  id="sm-buttons"class="">
@@ -181,7 +188,7 @@
                         <!-- Form end-->
                     </div>
                     <!-- Footer -->
-                    <div class="footer">
+                    <div id="link-go-back-to-sign-in" class="footer">
                         <span>
                             I want to <a href="/login">return to login</a>
                         </span>
@@ -259,6 +266,10 @@
        $("#password_confirm").addClass("hide");
        $("#complete-gmail-signup").removeClass("hide");
        $("#sm-buttons").addClass("hide");
+       $("#link-go-back-to-sign-in").addClass("hide");
+       $("#sign-up-group-two").addClass("hide");
+       $("#sign-up-group-one").addClass("hide");
+
 
        // sign up on a button click
       $("#complete-gmail-signup").click(function(){
