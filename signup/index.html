@@ -271,13 +271,6 @@
 
      // gmail login status
      function onSignedIn(googleUser) {
-     //  Useful data for your client-side scripts:
-     //  console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-     //  console.log('Full Name: ' + profile.getName());
-     //  console.log('Given Name: ' + profile.getGivenName());
-     //  console.log('Family Name: ' + profile.getFamilyName());
-     //  console.log("Image URL: " + profile.getImageUrl());
-     //  console.log("Email: " + profile.getEmail());
 
       var profile      = googleUser.getBasicProfile();
       var idToken      = googleUser.getAuthResponse().id_token;
@@ -366,6 +359,8 @@
 
 
     $(document).ready(function(){
+
+      /*
       //Facebook login status
       FB.getLoginStatus(function(response) {
         if (response.status === "connected") {
@@ -409,7 +404,7 @@
         })
       })
 
-
+       */
 
 
       $("#btn-send").click(function(){
