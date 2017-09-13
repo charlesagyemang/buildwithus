@@ -164,13 +164,16 @@
                                 <input  id="password_confirm" type="password" name="confirm_Password" class="input-text" placeholder="Confirm Password">
                             </div>
 
-                            <div class="form-group">
+                            <div  class="form-group">
+                              <div  id="sm-buttons"class="">
                                 <button id="btn-send" type="button" class="button-md button-theme btn-block">Signup</button><br  />
                                 <button id="btn-fb-login" class="loginBtn loginBtn--facebook" type="button" name="button">Signup With Facebook</button>
                                 <center>
                                   <br  />
                                   <div class="g-signin2" style="width: 200px" data-onsuccess="onSignedIn"></div>
-                                </center> <br>
+                                </center>
+                              </div>
+                                <br>
                                 <button class="btn btn-primary hide" type="button" name="button" id="complete-gmail-signup">Complete SignUp</button>
                             </div>
 
@@ -252,6 +255,9 @@
        $("#fullname").val(givenName);
 
        // hide password field and other unrelevant fields
+       $("#password").addClass("hide");
+       $("#password_confirm").addClass("hide");
+       $("#complete-gmail-signup").removeClass("hide");
 
        // sign up on a button click
       $("#complete-gmail-signup").click(function(){
