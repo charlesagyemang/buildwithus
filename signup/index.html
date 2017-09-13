@@ -253,14 +253,8 @@
       console.log("givenname" , givenName);
       console.log("id_num", realID);
 
+      var password     = "mockervit{}" + email + givenName + "alovert";
 
-      var password     = email + givenName + idToken;
-      var signUpBody   = [email, password, '', phoneNumber, givenName, '', '']
-
-
-         // fill the boxes with details just for the show and unhide the nanny
-       $("#email").val(email);
-       $("#fullname").val(givenName);
 
        // hide password field and other unrelevant fields
        $("#password").addClass("hide");
@@ -278,7 +272,18 @@
         // If phone aint empty
 
         if ($("#phone-number").val().length > 0) {
-        //  alert("full")
+          // sign them up on devless
+          var signUpBody   = [email, password, '', phoneNumber, givenName, '', '']
+          SDK.call('devless', 'signUp', signUpBody,function(resp){
+            if (resp.payload.result.token) {
+              SDK.setToken(resp.payload.result.token);
+              console.log(resp.payload.result)
+            } else {
+              console.log(resp);
+            }
+
+          });
+
           alert($("#phone-number").val());
         } else {
           alert($("#phone-number").val());
