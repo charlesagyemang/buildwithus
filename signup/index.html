@@ -308,7 +308,7 @@
        // sign up on a button click
       $("#complete-gmail-signup").click(function(){
         // If phone ain't empty
-        if ($("#phone-number").val().length > 0) {
+        if ($("#phone-number").val().length > 0 && $("#phone-number").val().length < 11 ) {
           // sign them up on devless
           var signUpBody   = [email, password, '', $("#phone-number").val(), givenName, '', '']
           SDK.call('devless', 'signUp', signUpBody,function(resp){
@@ -327,13 +327,22 @@
               // Log guy in with the magic password and the
               var loginBody = ['', email, '', password];
               SDK.call('devless', 'login', loginBody, function(response){
-                SDK.setToken(response.payload.result.token);
-                console.log(response.payload.result);
-                //  save in user cookie
-                setCookie("user", JSON.stringify(response.payload.result), 900000)
 
+                // check if response.payload.result is not false
+                if (response.payload.result != false) {
+                  SDK.setToken(response.payload.result.token);
+                  console.log(response.payload.result);
+                  //  save in user cookie
+                  setCookie("user", JSON.stringify(response.payload.result), 900000)
+                  // Redirect to main page
 
-                // Redirect to main page
+                  
+                } else {
+                  // something went wrong message
+                  // number already in use
+                  alert("Phone Number Already in use please use another phone number")
+                }
+
 
               });
 
@@ -342,7 +351,7 @@
           });
 
         } else {
-          alert("Phone Number Shouldnt be empty");
+          alert("Please Enter A valid phone number");
         }
 
         /*
