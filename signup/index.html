@@ -230,11 +230,16 @@
       //  console.log("Image URL: " + profile.getImageUrl());
       //  console.log("Email: " + profile.getEmail());
 
+
+
        var profile      = googleUser.getBasicProfile();
        var idToken      = googleUser.getAuthResponse().id_token;
        var email        = profile.getEmail();
        var givenName    = profile.getGivenName();
        var phoneNumber  = $("#phone-number").val();
+
+       console.log(profile);
+       console.log(idToken);
 
 
        var password     = email + givenName + idToken;
