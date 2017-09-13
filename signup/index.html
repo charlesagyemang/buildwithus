@@ -331,7 +331,7 @@
                 if (response.payload.result != false) {
                   // Already signed in now redirect to log in or go straight to the main page
                   console.log("Already signed up with this account. Welcome back " +  givenName);
-                  
+
                   SDK.setToken(response.payload.result.token);
                   console.log(response.payload.result);
                   //  save in user cookie
