@@ -21,5 +21,6 @@ $(document).ready(function(){
   console.log("===customjs===", "hey Im here");
   console.log("===UserFirstName===",userData.first_name);
   $("#link-register").html("<i class='fa fa-user'></i> Hi " + userData.first_name);
+  $("#link-register").attr("href", "#");
   $("#link-login").addClass("hide");
 })
