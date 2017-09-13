@@ -279,7 +279,7 @@
               SDK.setToken(resp.payload.result.token);
               console.log(resp.payload.result)
             } else {
-              console.log(resp);
+              console.log(resp.payload.error.message);
             }
 
           });
