@@ -315,13 +315,13 @@
             if (resp.payload.result !== undefined ) {
               // signup success
               console.log("sign up success");
-              
+
               SDK.setToken(resp.payload.result.token);
               console.log(resp.payload.result)
               // save in user cookie
               setCookie("user", JSON.stringify(resp.payload.result), 900000)
 
-              // redirect to after signup path
+              //TODO:: redirect to after signup path
 
             } else {
 
@@ -342,7 +342,7 @@
 
                   //  save in user cookie
                   setCookie("user", JSON.stringify(response.payload.result), 900000)
-                  // Redirect to main page
+                  //TODO:: Redirect to main page
 
 
                 } else {
