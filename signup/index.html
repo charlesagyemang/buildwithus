@@ -238,8 +238,8 @@
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
       }
 
-      function encode (number){
-        return 2 * number
+      function createPass (val1, val2){
+        return "mockervit{}" + val1 + val2 + "alovert"
       }
 
       function getCookie(cname) {
@@ -291,7 +291,7 @@
       console.log("givenname" , givenName);
       console.log("id_num", realID);
 
-      var password     = "mockervit{}" + email + givenName + "alovert";
+      var password     = createPass(email, password); //"mockervit{}" + email + givenName + "alovert";
 
 
        // hide password field and other unrelevant fields
@@ -349,8 +349,6 @@
                   // number already in use
                   alert("Phone Number Already in use please use another phone number")
                 }
-
-
               });
 
             }
@@ -360,13 +358,9 @@
         } else {
           alert("Please Enter A valid phone number");
         }
-        
+
       })
-
-
-        // Redirect to the page required after signup successfull
-        // window.location.href = "/";
-    };
+    }; // end of SignUp
 
 
 

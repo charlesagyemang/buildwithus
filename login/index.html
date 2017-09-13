@@ -230,8 +230,8 @@
          var id_token = googleUser.getAuthResponse().id_token;
          console.log("ID Token: " + id_token);
 
-         
-         window.location.href = "/";
+
+         // window.location.href = "/";
      };
 
     $(document).ready(function(){
@@ -241,7 +241,7 @@
       FB.getLoginStatus(function(response) {
         if (response.status === "connected") {
           console.log(response.status);
-          window.location.href = "/"
+          // window.location.href = "/"
         } else {
 
         }
@@ -252,7 +252,7 @@
         //Use this logic in a button
         FB.login(function(resp){
           if (resp.status === "connected"){
-            window.location.href = "/";
+            // window.location.href = "/";
           }
         })
       })
