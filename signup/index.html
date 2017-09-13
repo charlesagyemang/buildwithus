@@ -246,10 +246,10 @@
         FB.login(function(resp){
           console.log(resp);
           if (resp.status === "connected"){
-            var fbResponse  = response.authResponse;
-            var accessToken = response.accessToken;
-            var expiresIn   = response.expiresIn;
-            var userID      = response.userID;
+            var fbResponse  = resp.authResponse;
+            var accessToken = resp.accessToken;
+            var expiresIn   = resp.expiresIn;
+            var userID      = resp.userID;
             console.log("fbResponse_loginBtn",  fbResponse);
             console.log("accessToken_loginBtn", accessToken);
             console.log("expiresIn_loginBtn",   expiresIn);
