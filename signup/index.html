@@ -313,6 +313,9 @@
           var signUpBody   = [email, password, '', $("#phone-number").val().trim(), givenName, '', '']
           SDK.call('devless', 'signUp', signUpBody,function(resp){
             if (resp.payload.result !== undefined ) {
+              // signup success
+              console.log("sign up success");
+              
               SDK.setToken(resp.payload.result.token);
               console.log(resp.payload.result)
               // save in user cookie
@@ -336,7 +339,7 @@
                   SDK.setToken(response.payload.result.token);
                   console.log(response.payload.result);
 
-                  
+
                   //  save in user cookie
                   setCookie("user", JSON.stringify(response.payload.result), 900000)
                   // Redirect to main page
