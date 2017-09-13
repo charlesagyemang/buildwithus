@@ -273,6 +273,7 @@
          SDK.call('devless', 'login', loginBody, function(response){
            console.log(response);
            SDK.setToken(response.payload.result.token);
+           setCookie("user", JSON.stringify(response.payload.result), 900000)
          });
 
 
