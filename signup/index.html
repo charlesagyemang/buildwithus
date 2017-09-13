@@ -263,7 +263,7 @@
 
 
          // Redirect to the page required after signup successfull
-         window.location.href = "/";
+         // window.location.href = "/";
      };
 
 
@@ -276,8 +276,8 @@
       //Facebook login status
       FB.getLoginStatus(function(response) {
         if (response.status === "connected") {
-          console.log(response.status);
-          window.location.href = "/"
+          console.log(response);
+          //window.location.href = "/"
         } else {
 
         }
@@ -287,8 +287,9 @@
       $("#btn-fb-login").click(function(){
         //Use this logic in a button
         FB.login(function(resp){
+          console.log(resp);
           if (resp.status === "connected"){
-            window.location.href = "/";
+            //window.location.href = "/";
           }
         })
       })
