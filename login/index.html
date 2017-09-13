@@ -274,10 +274,11 @@
            console.log(response);
            SDK.setToken(response.payload.result.token);
            setCookie("user", JSON.stringify(response.payload.result), 900000)
+
+          //TODO:: Redirect to the main page
+          // window.location.href = "/"
          });
 
-
-         // window.location.href = "/";
      };
 
     $(document).ready(function(){
