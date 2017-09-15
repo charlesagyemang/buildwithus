@@ -137,39 +137,39 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
-                <ul class="nav navbar-nav">
-                  <li class="dropdown" id="btn-about-us">
-                        <a  href="/"tabindex="0" aria-expanded="false">
-                            Home
-                        </a>
+              <ul class="nav navbar-nav">
+                  <li class="dropdown ">
+                      <a tabindex="0" href="/" aria-expanded="false">
+                          Home
+                      </a>
+                  </li>
+                  <li class="dropdown ">
+                      <a tabindex="0" href="/about" aria-expanded="false">
+                          About Us
+                      </a>
+                  </li>
+                  <li class="dropdown">
+                      <a tabindex="0" href="/designs" aria-expanded="false">
+                          Design Catelogue
+                      </a>
+                  </li>
+                  <li class="dropdown active">
+                      <a tabindex="0" href="/buydesigns" aria-expanded="false">
+                          Buy Designs
+                      </a>
+                  </li>
+                  <li class="dropdown ">
+                      <a tabindex="0" href="/buildwithus" aria-expanded="false">
+                          Build With Us
+                      </a>
+                  </li>
+                  <li class="dropdown">
+                      <a tabindex="0" href="/contact" aria-expanded="false">
+                          Contact Us
+                      </a>
+                  </li>
+              </ul>
 
-                    </li>
-                    <li class="dropdown">
-                        <a href="/designs" tabindex="0" aria-expanded="false">
-                            Designs
-                        </a>
-
-                    </li>
-                    <li class="dropdown ">
-                        <a tabindex="0" href="/buildwithus" aria-expanded="false">
-                            Build With Us
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="/contact" tabindex="0" aria-expanded="false">
-                            Contact Us
-                        </a>
-
-                    </li>
-
-                </ul>
-                <ul class="nav navbar-nav navbar-right rightside-navbar">
-                    <li>
-                        <a href="submit-property.html" class="button">
-                            Submit Property
-                        </a>
-                    </li>
-                </ul>
             </div>
 
             <!-- /.navbar-collapse -->
@@ -199,15 +199,34 @@
 <div class="contact-body content-area">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+
+
+              <div class="col-lg-12">
+                <div class="col-lg-6">
+                  <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                    <div class="dv-where:id:design_id:get-all:plans:plans_table center-products panel-body">
+                      <h1  ><span class = "var-name"></span></h1>
+                      <h3  ><span class = "var-price"></span></h3>
+                      <img src="" class = "var-file"alt="" width="250px" height="250px">
+                      <span id="btn-id" class="var-id hide"></span>
+                      <p  class = "var-description" >
+                         Loading...
+                      </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+
+                </div>
+
+              </div>
                 <!-- Contact form start -->
                 <div class="contact-form">
-                    <div class="main-title-2">
-                        <h1><span>Enter Your Details Below</span> </h1>
-                    </div>
-                    <form id="contact_form" action="index.html" method="POST" enctype="multipart/form-data">
-                        <div class="row">
+                  <div id="payment-form" class="col-lg-12">
+                    <form>
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <div class="main-title-2">
+                                  <h1><span>Please fill the form Below to initaite purchase</span> </h1>
+                              </div>
                                 <div class="form-group fullname">
                                     <input type="text" name="full-name" class="input-text" placeholder="Full Name">
                                 </div>
@@ -227,15 +246,17 @@
                                     <input type="text" name="phone" class="input-text" placeholder="Card Pin">
                                 </div>
                             </div>
-
-                            <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
-                                <div class="form-group send-btn">
-                                    <button type="submit" class="button-md button-theme">Pay</button>
-                                </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <button id="btn-pay" type="button" class="button-md button-theme" name="button">Pay</button>
                             </div>
-                        </div>
+
                     </form>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <button id="btn-pay" type="button" class="button-md button-theme" name="button">Pay</button>
+                    </div>
                 </div>
+              </div>
                 <!-- Contact form end -->
             </div>
 
@@ -246,171 +267,7 @@
 
 <!-- Footer start -->
 <footer class="main-footer clearfix">
-    <div class="container">
-        <!-- Footer top -->
-        <div class="footer-top">
-            <div class="row">
-                <div class="col-lg-5 col-md-4 col-sm-3 col-xs-12">
-                    <div class="logo-2">
-                        <a href="index.html">
-                            <img src="img/logos/footer-logo.png" alt="footer-logo">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4  col-md-4 col-sm-5 col-xs-12">
-                    <form action="#" method="post">
-                        <input type="text" class="form-contact" name="email" placeholder="Enter your email">
-                        <button type="submit" name="submitNewsletter" class="btn btn-default button-small">
-                            <i class="fa fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <ul class="social-list clearfix">
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Footer info-->
-        <div class="footer-info">
-            <div class="row">
-                <!-- About us -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="footer-item">
-                        <div class="main-title-2">
-                            <h1>Contact Us</h1>
-                        </div>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printing and typesetting
-                        </p>
-                        <ul class="personal-info">
-                            <li>
-                                <i class="fa fa-map-marker"></i>
-                                Address: 44 New Design Street, Melbourne
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope"></i>
-                                Email:<a href="mailto:sales@hotelempire.com">sales@themevessel.com</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-phone"></i>
-                                Phone: <a href="tel:+55-417-634-7071">+55 417-634-7071</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-fax"></i>
-                                Fax: +55 417-634-7071
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Links -->
-                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                    <div class="footer-item">
-                        <div class="main-title-2">
-                            <h1>Links</h1>
-                        </div>
-                        <ul class="links">
-                            <li>
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li>
-                                <a href="about.html">About Us</a>
-                            </li>
-                            <li>
-                                <a href="contact.html">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="with-right-sidebar.html">Blog</a>
-                            </li>
-                            <li>
-                                <a href="properties-list-rightside.html">properties Listing</a>
-                            </li>
-                            <li>
-                                <a href="properties-grid-rightside.html">properties Grid</a>
-                            </li>
-                            <li>
-                                <a href="properties-details.html">properties Details</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Tags -->
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="footer-item tags-box">
-                        <div class="main-title-2">
-                            <h1>Tags</h1>
-                        </div>
-                        <ul class="tags">
-                            <li><a href="#">Image</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Typography</a></li>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Slideshow</a></li>
-                            <li><a href="#">Post Formats</a></li>
-                            <li><a href="#">Sellers</a></li>
-                            <li><a href="#">WooCommerce</a></li>
-                            <li><a href="#">Shortcodes</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Recent cars -->
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="footer-item popular-posts">
-                        <div class="main-title-2">
-                            <h1>popular posts</h1>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-1">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="#">Modern Design Building</a>
-                                </h3>
-                                <p>21 October, 2016</p>
-                                <div class="comments-icon">
-                                    <i class="fa fa-comments"></i>45 comments
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-2">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="#">Real Eatate Expo 2016</a>
-                                </h3>
-                                <p>10 October, 2016</p>
-                                <div class="comments-icon">
-                                    <i class="fa fa-comments"></i>32 comments
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-3">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="#">Construction and Development</a>
-                                </h3>
-                                <p>10 October, 2016</p>
-                                <div class="comments-icon">
-                                    <i class="fa fa-comments"></i>58 comments
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </footer>
 <!-- Footer end -->
 
@@ -421,7 +278,7 @@
     </div>
 </div>
 <!-- Copy end right-->
-
+<script src="https://buildgallery.herokuapp.com/js/devless-sdk.js" class="devless-connection" devless-con-token="41b1f8b6dd4823f63f8eeed626bfafa8"></script>
 <script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap-submenu.js"></script>
@@ -506,16 +363,53 @@
     LoadMap();
 </script>
 <script type="text/javascript">
+
+  function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+          }
+      }
+      return "";
+  }
+
+    // FUnctions check cookies
+    function checkCookie(cook) {
+        var token=getCookie(cook);
+        if (token != "") {
+          return true
+        } else {
+          return false
+        }
+    }
+
   $(document).ready(function(){
+    if (!checkCookie("user")) {
+      $("#payment-form").addClass("hidden");
+    }
 
     $('#btn-about-us').unbind('hover').hover(function(){
-      //alert("hey");
       $('#myDropdown').show();
     })
 
     $('#btn-about-us').mouseleave(function(){
       $('#myDropdown').hide();
     })
+
+    // PAY
+    $("#btn-pay").click(function(){
+      alert($("#btn-id").val());
+      console.log($("#btn-id").val());
+    })
+
+
   })
 </script>
 </body>
