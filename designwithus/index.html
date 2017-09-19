@@ -306,28 +306,23 @@
 <script type="text/javascript">
 
   // send sms
-  var clientId     = "idtdhbtx";
-  var clientSecret = "ybgoupdp";
-
-
   function sendMessage(sender, recepient, message){
-         var settings = {
-             "async": true,
-             "crossDomain": true,
-             "url": "https://api.smsgh.com/v3/messages/send?From=" + sender + "&To=%2B233" + recepient + "&Content=" + message + "&ClientId=" + clientId  +"idtdhbtx&ClientSecret="+ clientSecret,
-             "method": "GET",
-             "dataType": "jsonp",
-             "headers": {
-               "content-type": "application/json; charset-UTF8",
-             },
-             "processData": false,
-           }
+          var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://api.smsgh.com/v3/messages/send?From=" + sender + "&To=%2B233" + recepient + "&Content=" + message + "&ClientId=idtdhbtx&ClientSecret=ybgoupdp",
+              "method": "GET",
+              "dataType": "jsonp",
+              "headers": {
+                "content-type": "application/json; charset-UTF8",
+              },
+              "processData": false,
+            }
 
-           $.ajax(settings).done(function (response) {
-             console.log(response);
-           });
-       }
-
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        }
 
 
     // check whether user has logged in
@@ -420,9 +415,6 @@
 
       });
 
-
-
-
       devlessCallbacks(function(resp){
         if (resp.status_code == 609) {
           // get cookie
@@ -432,7 +424,7 @@
           console.log(phoneNumber);
           // send sms
           var senderName       = "Squetch";
-          var message          = "Thank you for booking an appointment to design with us. Your appointment scheduled for" + dateTime  + " is pending approval. You will receive a text message like this upon approval. thank you for using squetch";
+          var message          = "Thank you for booking an appointment to design with us. Your appointment scheduled for " + dateTime  + " is pending approval. You will receive a text message like this upon approval. thank you for using squetch";
           sendMessage(senderName, phoneNumber, message);
         }
       });
