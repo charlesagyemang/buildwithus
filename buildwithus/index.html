@@ -298,7 +298,6 @@
 <script type="text/javascript" src="/js/dropzone.js"></script>
 <script type="text/javascript" src="/js/maps.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
-
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script type="text/javascript" src="/js/ie10-viewport-bug-workaround.js"></script>
 <!-- Custom javascript -->
@@ -380,12 +379,28 @@
 
 
      // intercept
+     // intercept
      dvInterceptSubmission = function(resp) {
-            resp.appointments.meeting_location = $("#meeting-location").val();
-            // resp.appointments.phone_number     = $("#phone_number").val().slice(-9);
-            // resp.appointments.email            = profile.email;
+            var phoneNumber                    = $("#phone_number").val().slice(-9);
+            var meetingLocation                = $("#meeting-location").val();
+            var email                          = $("#email").val();
+            var date                           = $("#dte").val();
+            var time                           = $("#time").val();
+            resp.appointments.meeting_location = meetingLocation;
+            resp.appointments.phone_number     = phoneNumber;
+            resp.appointments.appointment_type = 2;
+            resp.appointments.site_plan        = mainImageUrl;
+            var  appointmentData = {
+              "phone_number" : phoneNumber,
+              "location"     : meetingLocation,
+              "email"        : email,
+              "date"         : date,
+              "time"         : time
+            }
+            setCookie("appointment_data", JSON.stringify(appointmentData), 200)
         return resp;
     }
+
 
 
 
