@@ -196,7 +196,7 @@
     <div class="col-lg-6">
 
 
-          <form class="dv-add-oneto:appointements:appointements_table dv-label:appointments">
+          <form class="dv-add-oneto:appointements:appointments_table dv-label:appointments">
             <br>
             <div class="dv-notify-success"      style ="color: green">Successful</div>
             <div class="dv-notify-failed"       style ="color: red">Failed</div><br><br>
@@ -389,6 +389,7 @@
             var time                           = $("#time").val();
             resp.appointments.meeting_location = meetingLocation;
             resp.appointments.phone_number     = phoneNumber;
+            resp.appointments.appointment_type = 1;
             var appointmentData = {
               "phone_number" : phoneNumber,
               "location"     : meetingLocation,
@@ -427,7 +428,7 @@
           var message          = "Thank you for booking an appointment to design with us. Your appointment scheduled for " + dateTime  + " is pending approval. You will receive a text message like this upon approval. thank you for using squetch";
           var messageAdmin     = "Hello admin, " + response.name + " someone just booked an appointment scheduled for " + dateTime + " could you please attend to it and either approve or disapprove? Thank you!. "
           sendMessage(senderName, phoneNumber, message);
-          sendMessage(senderName, "271522709", messageAdmin);
+          //sendMessage(senderName, "271522709", messageAdmin);
         }
       });
 
