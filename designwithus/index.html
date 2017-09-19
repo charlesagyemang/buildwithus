@@ -201,9 +201,10 @@
             <div class="dv-notify-success"      style ="color: green">Successful</div>
             <div class="dv-notify-failed"       style ="color: red">Failed</div><br><br>
 
-              <label     id="display-name"></label>
-              <input     id="dte"               class="form-control"   type="text" name="day"                placeholder="Select date"><br>
-              <input     id="time"              class="form-control"   type="text" name="time"               placeholder="Select time"><br>
+              <label     id="display-name"></label><br>
+              <input     id="name"              class="form-control"   type="text" name="name"                placeholder="Name"><br>
+              <input     id="email"             class="form-control"   type="text" name="email"               placeholder="email"><br>
+              <input     id="phone_number"      class="form-control"   type="text" name="phone_number"        placeholder="Phone Number (please give us a working one)"><br>
               <input     id="site_location"     class="form-control"   type="text" name="site_location"      placeholder="Specify Site Location"><br>
               <select    id="meeting-location">
                 <option value="null">Select Meeting Place</option>
@@ -212,6 +213,10 @@
                 <option value="Client's Home">Your Home</option>
                 <option value="Project Site">Project Site</option>
               </select><br><br>
+              <input     id="dte"               class="form-control"   type="text" name="day"                placeholder="Select date"><br>
+              <input     id="time"              class="form-control"   type="text" name="time"               placeholder="Select time"><br>
+
+
               <button    class="btn btn-primary form-control" type="submit">Submit</button>
           </form>
       <br /><br><br><br><br><br><br><br><br><br><br /><br><br><br><br><br><br><br><br><br>
@@ -299,7 +304,31 @@
 <script type="text/javascript" src="/js/ie10-viewport-bug-workaround.js"></script>
 
 <script type="text/javascript">
-  $(document).ready(function(){
+
+  // send sms
+  var clientId     = "idtdhbtx";
+  var clientSecret = "ybgoupdp";
+
+
+  function sendMessage(sender, recepient, message){
+         var settings = {
+             "async": true,
+             "crossDomain": true,
+             "url": "https://api.smsgh.com/v3/messages/send?From=" + sender + "&To=%2B233" + recepient + "&Content=" + message + "&ClientId=" + clientId  +"idtdhbtx&ClientSecret="+ clientSecret,
+             "method": "GET",
+             "dataType": "jsonp",
+             "headers": {
+               "content-type": "application/json; charset-UTF8",
+             },
+             "processData": false,
+           }
+
+           $.ajax(settings).done(function (response) {
+             console.log(response);
+           });
+       }
+
+
 
     // check whether user has logged in
     // Set cookies functions
@@ -337,41 +366,79 @@
      }
 
 
+
+  $(document).ready(function(){
+
      // Log in first message
-     console.log(checkCookie("user"));
+     //console.log(checkCookie("user"));
+
+    //  if (getCookie("user")) {
+    //    console.log("yes");
+    //  } else {
+    //    alert("Sign in first")
+    //    window.location.href = "/login"
+    //  }
 
      //getCookie profile
-     var profile = $.parseJSON(getCookie("user")).profile;
-     console.log(profile.email);
-     $("#display-name").html("Signed in as " + profile.email)
+    //  var profile = $.parseJSON(getCookie("user")).profile;
+    //  console.log(profile.email);
+    //  $("#display-name").html("Signed in as " + profile.email)
 
 
      // intercept
      dvInterceptSubmission = function(resp) {
-            resp.appointments.meeting_location = $("#meeting-location").val();
-            resp.appointments.phone_number     = profile.phone_number.toString();
-            resp.appointments.email            = profile.email;
+            var phoneNumber                    = $("#phone_number").val().slice(-9);
+            var meetingLocation                = $("#meeting-location").val();
+            var email                          = $("#email").val();
+            var date                           = $("#dte").val();
+            var time                           = $("#time").val();
+            resp.appointments.meeting_location = meetingLocation;
+            resp.appointments.phone_number     = phoneNumber;
+            var appointmentData = {
+              "phone_number" : phoneNumber,
+              "location"     : meetingLocation,
+              "email"        : email,
+              "date"         : date,
+              "time"         : time
+            }
+            setCookie("appointment_data", JSON.stringify(appointmentData), 200)
         return resp;
     }
+
+
 
      // date picker
      var dateToday = new Date();
      $("#dte").datepicker({
 
           format: 'mm-dd-yyyy',
-          beforeShowDay: function(date) {
-            var day = date.getDay();
-            return [(day != 1 && day != 3 && day != 5 && day != 6 && day != 0), ''];
-          },
+          // beforeShowDay: function(date) {
+          //   var day = date.getDay();
+          //   return [(day != 1 && day != 3 && day != 5 && day != 6 && day != 0), ''];
+          // },
           minDate: dateToday
 
       });
 
 
+
+
+      devlessCallbacks(function(resp){
+        if (resp.status_code == 609) {
+          // get cookie
+          var response    = $.parseJSON(getCookie("appointment_data"));
+          var phoneNumber = response.phone_number;
+          var dateTime    = response.date + " @ " + response.time;
+          console.log(phoneNumber);
+          // send sms
+          var senderName       = "Squetch";
+          var message          = "Thank you for booking an appointment to design with us. Your appointment scheduled for" + dateTime  + " is pending approval. You will receive a text message like this upon approval. thank you for using squetch";
+          sendMessage(senderName, phoneNumber, message);
+        }
+      });
+
       // time picker
        $('#time').timepicker({})
-
-
 
 
     //btn-appointment-submit

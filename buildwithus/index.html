@@ -8,8 +8,11 @@
     <!-- External CSS libraries -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
+
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-submenu.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-select.min.css">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     <link rel="stylesheet" href="/css/leaflet.css" type="text/css">
     <link rel="stylesheet" href="css/map.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="/fonts/font-awesome/css/font-awesome.min.css">
@@ -144,7 +147,7 @@
                         Home
                     </a>
                 </li>
-                  <li class="dropdown" id="btn-about-us">
+                <li class="dropdown" id="btn-about-us">
                       <a tabindex="0" href="/about" aria-expanded="false">
                           About Us
                       </a>
@@ -159,13 +162,13 @@
                           Design Catalogue
                       </a>
                   </li>
-                  <li class="dropdown">
-                      <a tabindex="0" href="../designwithus" aria-expanded="false">
+                  <li class="dropdown ">
+                      <a tabindex="0" href="/designwithus" aria-expanded="false">
                           Design With Us
                       </a>
                   </li>
                   <li class="dropdown active">
-                      <a tabindex="0" href="/buildwithus" aria-expanded="false">
+                      <a tabindex="0" href="#" aria-expanded="false">
                           Build With Us
                       </a>
                   </li>
@@ -185,63 +188,46 @@
     </div>
 </header>
 <!-- Main header end -->
+<div class="container-fluid">
+  <div class="col-lg-12">
+    <div class="col-lg-3">
 
-<!-- Sub banner start -->
-<div class="sub-banner">
-    <div class="overlay">
-        <div class="container">
-            <div class="breadcrumb-area">
-                <h1>Build With Us</h1>
-                <ul class="breadcrumbs">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Build With Us</li>
-                </ul>
-            </div>
-        </div>
     </div>
-</div>
-<!-- Sub Banner end -->
+    <div class="col-lg-6">
 
-<!-- Agent section start -->
-<div class="content-area agent-section">
-    <div class="container">
-        <!-- option bar start -->
-        <div class="option-bar">
-            <div class="row">
-                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-2">
-                    <h4>
-                        <span class="heading-icon">
-                            <i class="fa fa-large"></i>
-                        </span>
-                        <span class="hidden-xs">Please Fill The Form Below To build With Us</span>
-                    </h4>
-                </div>
-            </div>
-        </div>
-        <!-- option bar end -->
-        <div class="clearfix"></div>
 
-        <div class="row">
-            <center>
-                <form class="dv-add-oneto:appointements:appointements_table">
-                  <br>
-                  <div class="dv-notify-success"      style ="color: green">Successful</div>
-                  <div class="dv-notify-failed"       style ="color: red">Failed</div><br><br>
-                    <input     class="form-control"   type="text" name="name"   placeholder="name"><br>
-                    <input     class="form-control"   type="date" name="day"    placeholder="day"><br>
-                    <input     class="form-control"   type="time" name="time"   placeholder="time"><br>
-                    <textarea  class="form-control"   type="text" name="reason"   placeholder="reason"></textarea><br>
-                    <button    class="btn btn-primary form-control" type="submit">Submit</button>
-                </form>
+          <form class="dv-add-oneto:appointements:appointements_table dv-label:appointments">
+            <br>
+            <div class="dv-notify-success"      style ="color: green">Successful</div>
+            <div class="dv-notify-failed"       style ="color: red">Failed</div><br><br>
 
-            </center>
+              <!-- <label     id="display-name"></label><br> -->
+              <input     id="name"              class="form-control"   type="text" name="name"                placeholder="Phone Number (please give us a working one)"><br>
+              <input     id="email"             class="form-control"   type="text" name="email"               placeholder="Phone Number (please give us a working one)"><br>
+              <input     id="phone_number"      class="form-control"   type="text" name="phone_number"        placeholder="Phone Number (please give us a working one)"><br>
+              <input     id="site_location"     class="form-control"   type="text" name="site_location"       placeholder="Specify Site Location"><br>
+              <button    id="btn-upload-site-plan" class="btn btn-info" type="button" name="site_plan">Upload Site Plan</button> <label>none Selected</label><br><br>
+              <select    id="meeting-location">
+                <option value="null">Select Meeting Place</option>
+                <option value="Office Location">Our Office</option>
+                <option value="Client's Office">Your Office</option>
+                <option value="Client's Home">Your Home</option>
+                <option value="Project Site">Project Site</option>
+              </select><br><br>
+              <input     id="dte"               class="form-control"   type="text" name="day"                placeholder="Select date"><br>
+              <input     id="time"              class="form-control"   type="text" name="time"               placeholder="Select time"><br>
 
-        </div>
+
+              <button    class="btn btn-success form-control" type="submit">Submit</button>
+          </form>
+      <br /><br><br><br><br><br><br><br><br><br><br /><br><br><br><br><br><br><br><br><br>
+    </div>
+    <div class="col-lg-3">
+
+    </div>
   </div>
+
 </div>
-<!-- Agent section end -->
-
-
 <!-- Footer start -->
 <footer class="main-footer clearfix">
     <div class="container">
@@ -276,137 +262,7 @@
         </div>
         <!-- Footer info-->
         <div class="footer-info">
-            <div class="row">
-                <!-- About us -->
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="footer-item">
-                        <div class="main-title-2">
-                            <h1>Contact Us</h1>
-                        </div>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printing and typesetting
-                        </p>
-                        <ul class="personal-info">
-                            <li>
-                                <i class="fa fa-map-marker"></i>
-                                Address: 44 New Design Street, Melbourne
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope"></i>
-                                Email:<a href="mailto:sales@hotelempire.com"></a>
-                            </li>
-                            <li>
-                                <i class="fa fa-phone"></i>
-                                Phone: <a href="tel:+55-417-634-7071">+55 417-634-7071</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-fax"></i>
-                                Fax: +55 417-634-7071
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Links -->
-                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                    <div class="footer-item">
-                        <div class="main-title-2">
-                            <h1>Links</h1>
-                        </div>
-                        <ul class="links">
-                            <li>
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li>
-                                <a href="about.html">About Us</a>
-                            </li>
-                            <li>
-                                <a href="contact.html">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="blog-single.html">Blog</a>
-                            </li>
-                            <li>
-                                <a href="properties-list-rightside.html">properties Listing</a>
-                            </li>
-                            <li>
-                                <a href="properties-grid-rightside.html">properties Grid</a>
-                            </li>
-                            <li>
-                                <a href="properties-details.html">properties Details</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Tags -->
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="footer-item tags-box">
-                        <div class="main-title-2">
-                            <h1>Tags</h1>
-                        </div>
-                        <ul class="tags">
-                            <li><a href="#">Image</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Typography</a></li>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Slideshow</a></li>
-                            <li><a href="#">Post Formats</a></li>
-                            <li><a href="#">Sellers</a></li>
-                            <li><a href="#">WooCommerce</a></li>
-                            <li><a href="#">Shortcodes</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Recent cars -->
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="footer-item popular-posts">
-                        <div class="main-title-2">
-                            <h1>popular posts</h1>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-1">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="#">Modern Design Building</a>
-                                </h3>
-                                <p>21 October, 2016</p>
-                                <div class="comments-icon">
-                                    <i class="fa fa-comments"></i>45 comments
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-2">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="#">Real Eatate Expo 2016</a>
-                                </h3>
-                                <p>10 October, 2016</p>
-                                <div class="comments-icon">
-                                    <i class="fa fa-comments"></i>32 comments
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <img class="media-object" src="http://placehold.it/90x63" alt="small-properties-3">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="#">Construction and Development</a>
-                                </h3>
-                                <p>10 October, 2016</p>
-                                <div class="comments-icon">
-                                    <i class="fa fa-comments"></i>58 comments
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </footer>
@@ -420,10 +276,15 @@
 </div>
 <!-- Copy end right-->
 
+
 <script src="https://buildgallery.herokuapp.com/js/devless-sdk.js" class="devless-connection" devless-con-token="41b1f8b6dd4823f63f8eeed626bfafa8"></script>
 <script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap-submenu.js"></script>
+
+
 <script type="text/javascript" src="/js/rangeslider.js"></script>
 <script type="text/javascript" src="/js/jquery.mb.YTPlayer.js"></script>
 <script type="text/javascript" src="/js/wow.min.js"></script>
@@ -442,10 +303,114 @@
 <script type="text/javascript" src="/js/ie10-viewport-bug-workaround.js"></script>
 <!-- Custom javascript -->
 <script type="text/javascript" src="/js/ie10-viewport-bug-workaround.js"></script>
+<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+
 
 <script type="text/javascript">
   $(document).ready(function(){
+    var client          = filestack.init('AImLZrMiLQGy6uXSgb1a1z');
+    var mainImageUrl    = "";
 
+
+    // check whether user has logged in
+    // Set cookies functions
+     function setCookie(cname,cvalue,exdays) {
+         var d = new Date();
+         d.setTime(d.getTime() + (exdays*24*60*60*1000));
+         var expires = "expires=" + d.toGMTString();
+         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+     }
+
+     function getCookie(cname) {
+         var name = cname + "=";
+         var decodedCookie = decodeURIComponent(document.cookie);
+         var ca = decodedCookie.split(';');
+         for(var i = 0; i < ca.length; i++) {
+             var c = ca[i];
+             while (c.charAt(0) == ' ') {
+                 c = c.substring(1);
+             }
+             if (c.indexOf(name) == 0) {
+                 return c.substring(name.length, c.length);
+             }
+         }
+         return "";
+     }
+
+
+     function checkCookie(cook) {
+         var token=getCookie(cook);
+         if (token != "") {
+           return true
+         } else {
+           return false
+         }
+     }
+
+
+     // Log in first message
+     console.log(checkCookie("user"));
+
+    //  if (getCookie("user")) {
+    //    console.log("yes");
+    //  } else {
+    //    alert("Sign in first")
+    //    window.location.href = "/login"
+    //  }
+
+
+
+     // upload image
+     $('#btn-upload-site-plan').unbind('click').click(function(){
+       client.pick({
+         accept: 'image/*',
+         maxFiles: 1,
+       }).then(function(result) {
+           console.log("filesUploaded", result.filesUploaded);
+           $("#label-mImage").text(result.filesUploaded[0].filename);
+           mainImageUrl = result.filesUploaded[0].url;
+           //console.log(JSON.stringify(result.filesUploaded[0].url))
+       });
+     });
+
+     //getCookie profile
+    //  var profile = $.parseJSON(getCookie("user")).profile;
+    //  console.log(profile.email);
+    //  $("#display-name").html("Signed in as " + profile.email)
+
+
+     // intercept
+     dvInterceptSubmission = function(resp) {
+            resp.appointments.meeting_location = $("#meeting-location").val();
+            // resp.appointments.phone_number     = $("#phone_number").val().slice(-9);
+            // resp.appointments.email            = profile.email;
+        return resp;
+    }
+
+
+
+     // date picker
+     var dateToday = new Date();
+     $("#dte").datepicker({
+
+          format: 'mm-dd-yyyy',
+          beforeShowDay: function(date) {
+            var day = date.getDay();
+            return [(day != 1 && day != 3 && day != 5 && day != 6 && day != 0), ''];
+          },
+          minDate: dateToday
+
+      });
+
+
+      // time picker
+       $('#time').timepicker({})
+
+
+    //btn-appointment-submit
+    $("#btn-appointment-submit").click(function(){
+      alert("hey")
+    })
     $('#btn-about-us').unbind('hover').hover(function(){
       //alert("hey");
       $('#myDropdown').show();
@@ -456,5 +421,6 @@
     })
   })
 </script>
+
 </body>
 </html>
