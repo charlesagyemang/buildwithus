@@ -196,17 +196,17 @@
     <div class="col-lg-6">
 
 
-          <form class="dv-add-oneto:appointements:appointements_table dv-label:appointments">
+          <form class="dv-add-oneto:appointements:appointments_table dv-label:appointments">
             <br>
             <div class="dv-notify-success"      style ="color: green">Successful</div>
             <div class="dv-notify-failed"       style ="color: red">Failed</div><br><br>
 
               <!-- <label     id="display-name"></label><br> -->
-              <input     id="name"              class="form-control"   type="text" name="name"                placeholder="Phone Number (please give us a working one)"><br>
-              <input     id="email"             class="form-control"   type="text" name="email"               placeholder="Phone Number (please give us a working one)"><br>
+              <input     id="name"              class="form-control"   type="text" name="name"                placeholder="Your Name Here"><br>
+              <input     id="email"             class="form-control"   type="text" name="email"               placeholder="Email Here"><br>
               <input     id="phone_number"      class="form-control"   type="text" name="phone_number"        placeholder="Phone Number (please give us a working one)"><br>
               <input     id="site_location"     class="form-control"   type="text" name="site_location"       placeholder="Specify Site Location"><br>
-              <button    id="btn-upload-site-plan" class="btn btn-info" type="button" name="site_plan">Upload Site Plan</button> <label>none Selected</label><br><br>
+              <button    id="btn-upload-site-plan" class="btn btn-info" type="button" name="site_plan">Upload Site Plan</button> <label id="none-selected">none Selected</label><br><br>
               <select    id="meeting-location">
                 <option value="null">Select Meeting Place</option>
                 <option value="Office Location">Our Office</option>
@@ -283,8 +283,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap-submenu.js"></script>
-
-
 <script type="text/javascript" src="/js/rangeslider.js"></script>
 <script type="text/javascript" src="/js/jquery.mb.YTPlayer.js"></script>
 <script type="text/javascript" src="/js/wow.min.js"></script>
@@ -307,6 +305,27 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
+
+    // send sms
+    function sendMessage(sender, recepient, message){
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://api.smsgh.com/v3/messages/send?From=" + sender + "&To=%2B233" + recepient + "&Content=" + message + "&ClientId=idtdhbtx&ClientSecret=ybgoupdp",
+                "method": "GET",
+                "dataType": "jsonp",
+                "headers": {
+                  "content-type": "application/json; charset-UTF8",
+                },
+                "processData": false,
+              }
+
+              $.ajax(settings).done(function (response) {
+                console.log(response);
+              });
+          }
+
+
     var client          = filestack.init('AImLZrMiLQGy6uXSgb1a1z');
     var mainImageUrl    = "";
 
@@ -366,7 +385,7 @@
          maxFiles: 1,
        }).then(function(result) {
            console.log("filesUploaded", result.filesUploaded);
-           $("#label-mImage").text(result.filesUploaded[0].filename);
+           $("#none-selected").html(result.filesUploaded[0].filename);
            mainImageUrl = result.filesUploaded[0].url;
            //console.log(JSON.stringify(result.filesUploaded[0].url))
        });
@@ -378,7 +397,6 @@
     //  $("#display-name").html("Signed in as " + profile.email)
 
 
-     // intercept
      // intercept
      dvInterceptSubmission = function(resp) {
             var phoneNumber                    = $("#phone_number").val().slice(-9);
@@ -417,6 +435,23 @@
 
       });
 
+
+      // message
+      devlessCallbacks(function(resp){
+        if (resp.status_code == 609) {
+          // get cookie
+          var response    = $.parseJSON(getCookie("appointment_data"));
+          var phoneNumber = response.phone_number;
+          var dateTime    = response.date + " @ " + response.time;
+          console.log(phoneNumber);
+          // send sms
+          var senderName       = "Squetch";
+          var message          = "Thank you for booking an appointment to build with us. Your appointment scheduled for " + dateTime  + " is pending approval. You will receive a text message like this upon approval. thank you for using squetch";
+          var messageAdmin     = "Hello admin, " + response.name + " someone just booked an appointment to build with squetch. Its scheduled for " + dateTime + " could you please attend to it and either approve or disapprove? Thank you!. "
+         sendMessage(senderName, phoneNumber, message);
+         sendMessage(senderName, "271522709", messageAdmin);
+        }
+      });
 
       // time picker
        $('#time').timepicker({})
