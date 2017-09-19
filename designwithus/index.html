@@ -425,7 +425,9 @@
           // send sms
           var senderName       = "Squetch";
           var message          = "Thank you for booking an appointment to design with us. Your appointment scheduled for " + dateTime  + " is pending approval. You will receive a text message like this upon approval. thank you for using squetch";
+          var messageAdmin     = "Hello admin, " + response.name + " someone just booked an appointment scheduled for " + dateTime + " could you please attend to it and either approve or disapprove? Thank you!. "
           sendMessage(senderName, phoneNumber, message);
+          sendMessage(senderName, "271522709", messageAdmin);
         }
       });
 
