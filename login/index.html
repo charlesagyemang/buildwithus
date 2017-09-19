@@ -320,7 +320,9 @@
             } else {
 
               SDK.setToken(resp.payload.result.token);
-              // window.location.href = "/";
+              //set cookie
+              setCookie("user", JSON.stringify(resp.payload.result), 900000)
+              window.location.href = "/";
 
             }
           });
