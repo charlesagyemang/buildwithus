@@ -23,9 +23,10 @@ $(document).ready(function(){
   });
 
   // Appointments Table
-  SDK.queryData("appointements", "appointements_table", params, function(response){
+  SDK.queryData("appointements", "appointments_table", params, function(response){
     var value = response.payload.results.length
     apmtDisplay.text(value);
+    console.log(value);
     spanApmt.text(value);
   })
 

@@ -255,12 +255,12 @@
                                 <div class="page-title">
                                     <div class="row">
 
-                                        <a href="../"><h4 class="pull-left">Dashboard</h4></a>
+                                        <a href="../"><h4 class="pull-left">Appointments</h4></a>
 
 
                                         <ol class="breadcrumb pull-right">
                                             <li><a href="../"><i class="fa fa-home"></i></a></li>
-                                            <li>All Plans</li>
+                                            <li>All Appointments</li>
                                         </ol>
 
                                     </div>
@@ -271,40 +271,49 @@
                         <div class="row">
 
                             <div class="col-sm-12">
+                              <div class="col-lg-12">
+                                <table class="table table-bordered table-striped">
 
-                              <div class="row">
-                                  <!-- Devless rows -->
-                                  <div class="dv-get-all:appointements:appointements_table">
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-03s">
-                                        <!-- Property start -->
-                                        <div class="property">
-                                            <!-- Property img -->
-                                            <a href="#" class="property-img var-id">
+                                </table>
+                                <!-- <div class="dv-get-all:appointements:appointments_table dv-label:appoint"> -->
+                                <table class="table table-bordered table-striped">
+                                  <thead>
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Phone</th>
+                                      <th>Type</th>
+                                      <th>Time</th>
+                                      <th>Day</th>
+                                      <th>Approve</th>
+                                      <th>Disapprove</th>
+                                    </tr>
+                                  </thead>
 
-                                            <!-- Property content -->
-                                            <div class="property-content">
-                                                <!-- title -->
-                                                <h1 class="title">
-                                                  <a href="#" class="var-id "><p  class="var-name"></p></a><br>
-                                                  <a href="#" class="var-id "><p  class="var-reason"></p></a><br>
-                                                  <a href="#" class="var-id "><p  class="var-time"></p></a><br>
-                                                  <a href="#" class="var-id "><p  class="var-day"></p></a><br>
-                                                  <button type="button" class="btn btn-danger" name="button">disapprove</button>
-                                                  <button type="button" class="btn btn-primary" name="button">approve</button>
-                                                </h1>
-                                                <!-- Edit -->
-                                            </div>
+                                    <tbody class="dv-get-all:appointements:appointments_table dv-label:appoint">
+                                        <tr >
+                                          <td class="var-name"></td>
+                                          <td class="var-phone_number"></td>
+                                          <td class="var-appointment_type"></td>
+                                          <td class="var-time"></td>
+                                          <td class="var-day"></td>
+                                          <td><button class="btn btn-primary" type="button" name="button">approve</button></td>
+                                          <td><button class="btn btn-danger" type="button" name="button">disapprove</button></td>
+                                        </tr>
 
-                                        </div>
-                                        <!-- Property end -->
-                                    </div>
+                                    </tbody>
+
+
+                                      <!-- </div> -->
+                                    </table>
+                                      <br><br><br><br><br><br><br>  <br><br><br><br><br><br><br>
                               </div>
-                            </div>
+
+
 
                             </div>
 
                         </div>
-                        <br><br><br><br><br><br><br>
+
                     </div>
                     <div class="clearfix"></div>
                     <div class="footer">
@@ -406,5 +415,18 @@
         <script type="text/javascript" src="../assets/js/index-2.js"></script>
         <script type="text/javascript" src="../assets/js/customjs.js"></script>
         <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+        <script type="text/javascript">
+        dvInterceptQueryResponse = function(resp) {
+             for( each in resp.appoint) {
+                 resp.appoint[each].phone_number =  "0" + resp.appoint[each].phone_number
+                 if (resp.appoint[each].appointment_type == 1) {
+                   resp.appoint[each].appointment_type = "Design with us"
+                 } else {
+                   resp.appoint[each].appointment_type = "Build with us"
+                 }
+             }
+             return resp;
+          }
+        </script>
     </body>
 </html>
