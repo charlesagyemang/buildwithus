@@ -413,13 +413,32 @@
         <script type="text/javascript" src="../assets/js/customjs.js"></script>
         <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
         <script type="text/javascript">
+        // send sms
+        function sendMessage(sender, recepient, message){
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://api.smsgh.com/v3/messages/send?From=" + sender + "&To=%2B233" + recepient + "&Content=" + message + "&ClientId=idtdhbtx&ClientSecret=ybgoupdp",
+                    "method": "GET",
+                    "dataType": "jsonp",
+                    "headers": {
+                      "content-type": "application/json; charset-UTF8",
+                    },
+                    "processData": false,
+                  }
+
+                  $.ajax(settings).done(function (response) {
+                    console.log(response);
+                  });
+              }
+
         dvInterceptQueryResponse = function(resp) {
 
            var riler = [];
+
            console.log(resp.appoint);
 
            $.each(resp.appoint, function(ind, ele){
-
              var related = ele;
              var name    = related.name;
              var phone   = "0" + related.phone_number;
@@ -427,6 +446,14 @@
              var time    = related.time;
              var day     = related.day;
              //var status  = "approved";
+
+             var appointmentData = JSON.stringify({
+               "phone_number" : related.phone_number,
+               "email"        : related.email,
+               "date"         : day
+             });
+
+
 
              //related.appointment_type
              if (related.appointment_type == 1) {
@@ -441,12 +468,12 @@
             "<td>" + type    + "</td>" +
             "<td>" + time    + "</td>" +
             "<td>" + day     + "</td>" +
-            "<td><button  ider = "  + ele.id + " class='btn btn-primary approve'> approve </button></td>" +
-            "<td><button  ider = "  + ele.id + " class='btn btn-danger disapprove'> disapprove </button></td></tr>"
+            "<td><button  data = " + appointmentData + " ider = "  + ele.id + " class='btn btn-primary approve'> approve </button></td>" +
+            "<td><button  data = " + appointmentData + "  ider = "  + ele.id + " class='btn btn-danger disapprove'> disapprove </button></td></tr>"
 
             riler.push(each);
 
-            console.log(related);
+            //console.log(related);
            })
 
            $("#table").html(riler);
@@ -454,24 +481,34 @@
 
            // approve
            $(document).on('click', '.approve' , function() {
+             var data = $(this).attr("data");
 
              var postBody = {
                "status": "1",
                "appointements_appointments_table_id": $(this).attr("ider")
              }
 
-             console.log(postBody);
+             //console.log(postBody);
              // make a post to the appointment table
 
 
              SDK.addData("appointements", "approval_table", postBody,  function(response){
                if (response.status_code == 609) {
-                 // success
-                 console.log(response);
-
-                 // send approval sms
+                 alert("successfully approved. A text Message has been sent to the appointee following the approval")
+                 var response    = $.parseJSON(data);
+                 var phoneNumber = response.phone_number;
+                 var dateTime    = response.date ;
+                 var name        = response.email ;
+                 // send sms
+                 var senderName       = "Squetch";
+                 var message          = "Goodnews! your appointment scheduled for " + dateTime  + " has been approved. Please take note and honor the appointment. Thank you";
+                 var messageAdmin     = "Hello Admin!, You just disapproved the appointment of  " + name ;
+                 sendMessage(senderName, phoneNumber, message);
+                 sendMessage(senderName, "271522709", messageAdmin);
 
                } else if (response.status_code == 700) {
+
+
                   alert("You've already worked on this");
                }
 
@@ -482,54 +519,46 @@
              // Disapprove
 
              $(document).on('click', '.disapprove' , function() {
-
+               var data = $(this).attr("data");
                var postBody = {
                  "status": "2",
                  "appointements_appointments_table_id": $(this).attr("ider")
                }
 
-               console.log(postBody);
+               //console.log(postBody);
                // make a post to the appointment table
+
 
 
                SDK.addData("appointements", "approval_table", postBody,  function(response){
                  if (response.status_code == 609) {
                    // success
                    console.log(response);
-
-                   // send disapproval sms
+                   alert("successfully disapproved. A text Message has been sent to the appointee following the disapproval")
+                   var response    = $.parseJSON(data);
+                   var phoneNumber = response.phone_number;
+                   var dateTime    = response.date ;
+                   var name        = response.email ;
+                   console.log(phoneNumber);
+                   // send sms
+                   var senderName       = "Squetch";
+                   var message          = "Sorry your appointment scheduled for " + dateTime  + " has been disapproved. Please try again";
+                   var messageAdmin     = "Hello Admin!, You just disapproved the appointment of  " + name ;
+                   sendMessage(senderName, phoneNumber, message);
+                   sendMessage(senderName, "271522709", messageAdmin);
 
                  } else if (response.status_code == 700) {
+                    console.log(data);
+
+
                     alert("You've already worked on this");
                  }
-
-
                  }) ;
                })
 
-            //  for( each in resp.appoint) {
-            //     var id =  resp.appoint[each].id
-            //      resp.appoint[each].phone_number =  "0" + resp.appoint[each].phone_number
-            //      if (resp.appoint[each].appointment_type == 1) {
-            //        resp.appoint[each].appointment_type = "Design with us"
-            //      } else {
-            //        resp.appoint[each].appointment_type = "Build with us"
-            //      }
-             //
-            //  }
-            //  return resp;
+
           }
         </script>
 
-        <script type="text/javascript">
-          $(document).ready(function(){
-
-              // approve
-
-
-
-
-          })
-        </script>
     </body>
 </html>
