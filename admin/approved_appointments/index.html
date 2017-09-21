@@ -273,47 +273,36 @@
                         <div class="row">
 
                             <div class="col-sm-12">
+                              <div class="col-lg-12">
+                                <table class="table table-bordered table-striped">
 
-                              <div class="row">
+                                </table>
+                                <!-- <div class="dv-get-all:appointements:appointments_table dv-label:appoint"> -->
+                                <table class="table table-bordered table-striped">
+                                  <thead>
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Phone</th>
+                                      <th>Type</th>
+                                      <th>Time</th>
+                                      <th>Day</th>
+                                      <th>status</th>
 
+                                    </tr>
+                                  </thead>
 
-                                  <div class="dv-get-all:plans:plans_table">
-
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-03s">
-
-                                        <!-- Property start -->
-                                        <div class="property">
-                                            <!-- Property img -->
-                                            <!-- <a href="/design-details/?design_id=var-id" class="property-img var-id"> -->
-                                            <a href="#" class="property-img var-id">
-
-
-                                                <div class="property-price var-price">GHS 10,000</div>
-                                                <img class="var-file" src="" alt="properties-6" class="img-responsive" style="height:200px; width:200">
-
-                                            <!-- Property content -->
-
-                                            <div class="property-content">
-                                                <!-- title -->
-                                                <h1 class="title">
-                                                  <a href="/design-details/?design_id=var-id" class="var-id "><p  class="var-name"></p></a>
-                                                </h1>
-                                                <!-- Edit -->
-
-                                                <button type="button"  class="btn btn-danger  dv-delete"><i class="fa fa-trash-o"></i> Delete</button>
-                                                <button type="button"  class="btn btn-primary dv-update"><i class="fa fa-edit"> </i> Edit</button>
-
-                                            </div>
-
-                                        </div>
-                                        <!-- Property end -->
-                                    </div>
+                                    <tbody id="table" class="dv-where:status:1:get-all:appointements:approval_table dv-label:approval">
 
 
+                                    </tbody>
 
+
+                                      <!-- </div> -->
+                                    </table>
+                                      <br><br><br><br><br><br><br>  <br><br><br><br><br><br><br>
                               </div>
 
-                            </div>
+
 
                             </div>
 
@@ -427,7 +416,46 @@
         <script type="text/javascript" src="../assets/js/index-2.js"></script>
         <script type="text/javascript" src="../assets/js/customjs.js"></script>
         <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+        <script type="text/javascript">
+        dvInterceptQueryResponse = function(resp) {
+             var riler = [];
+             console.log(resp.approval);
 
 
+             $.each(resp.approval, function(ind, ele){
+
+               var related = ele.related.appointments_table[0];
+               var name    = related.name;
+               var phone   = "0" + related.phone_number;
+               var type    = "";
+               var time    = related.time;
+               var day     = related.day;
+               var status  = "approved";
+
+               //related.appointment_type
+               if (related.appointment_type == 1) {
+                type  = "Build With Us";
+               } else {
+                type  = "Design With Us";
+               }
+
+              // format array
+              var each = "<tr></tr><td>" + name    + "</td>" +
+              "<td>" + phone   + "</td>" +
+              "<td>" + type    + "</td>" +
+              "<td>" + time    + "</td>" +
+              "<td>" + day     + "</td>" +
+              "<td>" + status  + "</td></tr>"
+
+              riler.push(each);
+
+              console.log(related);
+             })
+
+             $("#table").html(riler);
+             //return resp;
+          }
+
+        </script>
     </body>
 </html>

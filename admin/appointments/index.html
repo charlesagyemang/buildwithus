@@ -289,22 +289,19 @@
                                     </tr>
                                   </thead>
 
-                                    <tbody class="dv-get-all:appointements:appointments_table dv-label:appoint">
-                                        <tr >
-                                          <td class="var-name"></td>
+                                    <tbody id="table" class="dv-get-all:appointements:appointments_table dv-label:appoint">
+                                        <!-- <tr >
+                                          <td id="name"class="var-name"></td>
                                           <td class="var-phone_number"></td>
                                           <td class="var-appointment_type"></td>
                                           <td class="var-time"></td>
                                           <td class="var-day"></td>
-                                          <td><button class="btn btn-primary" type="button" name="button">approve</button></td>
-                                          <td><button class="btn btn-danger" type="button" name="button">disapprove</button></td>
-                                        </tr>
+                                          <td >click  <button class="btn btn-primary approve   var-id" type="button" name="button"></button> to approve</td>
+                                          <td> click  <button class="btn btn-danger disapprove var-id" type="button" name="button"> </button> to disapprove</td>
+                                        </tr> -->
 
                                     </tbody>
-
-
-                                      <!-- </div> -->
-                                    </table>
+                                  </table>
                                       <br><br><br><br><br><br><br>  <br><br><br><br><br><br><br>
                               </div>
 
@@ -417,16 +414,122 @@
         <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
         <script type="text/javascript">
         dvInterceptQueryResponse = function(resp) {
-             for( each in resp.appoint) {
-                 resp.appoint[each].phone_number =  "0" + resp.appoint[each].phone_number
-                 if (resp.appoint[each].appointment_type == 1) {
-                   resp.appoint[each].appointment_type = "Design with us"
-                 } else {
-                   resp.appoint[each].appointment_type = "Build with us"
-                 }
+
+           var riler = [];
+           console.log(resp.appoint);
+
+           $.each(resp.appoint, function(ind, ele){
+
+             var related = ele;
+             var name    = related.name;
+             var phone   = "0" + related.phone_number;
+             var type    = "";
+             var time    = related.time;
+             var day     = related.day;
+             //var status  = "approved";
+
+             //related.appointment_type
+             if (related.appointment_type == 1) {
+              type  = "Build With Us";
+             } else {
+              type  = "Design With Us";
              }
-             return resp;
+
+            // format array
+            var each = "<tr></tr><td>" + name    + "</td>" +
+            "<td>" + phone   + "</td>" +
+            "<td>" + type    + "</td>" +
+            "<td>" + time    + "</td>" +
+            "<td>" + day     + "</td>" +
+            "<td><button  ider = "  + ele.id + " class='btn btn-primary approve'> approve </button></td>" +
+            "<td><button  ider = "  + ele.id + " class='btn btn-danger disapprove'> disapprove </button></td></tr>"
+
+            riler.push(each);
+
+            console.log(related);
+           })
+
+           $("#table").html(riler);
+           //return resp;
+
+           // approve
+           $(document).on('click', '.approve' , function() {
+
+             var postBody = {
+               "status": "1",
+               "appointements_appointments_table_id": $(this).attr("ider")
+             }
+
+             console.log(postBody);
+             // make a post to the appointment table
+
+
+             SDK.addData("appointements", "approval_table", postBody,  function(response){
+               if (response.status_code == 609) {
+                 // success
+                 console.log(response);
+
+                 // send approval sms
+
+               } else if (response.status_code == 700) {
+                  alert("You've already worked on this");
+               }
+
+
+               }) ;
+             });
+
+             // Disapprove
+
+             $(document).on('click', '.disapprove' , function() {
+
+               var postBody = {
+                 "status": "2",
+                 "appointements_appointments_table_id": $(this).attr("ider")
+               }
+
+               console.log(postBody);
+               // make a post to the appointment table
+
+
+               SDK.addData("appointements", "approval_table", postBody,  function(response){
+                 if (response.status_code == 609) {
+                   // success
+                   console.log(response);
+
+                   // send disapproval sms
+
+                 } else if (response.status_code == 700) {
+                    alert("You've already worked on this");
+                 }
+
+
+                 }) ;
+               })
+
+            //  for( each in resp.appoint) {
+            //     var id =  resp.appoint[each].id
+            //      resp.appoint[each].phone_number =  "0" + resp.appoint[each].phone_number
+            //      if (resp.appoint[each].appointment_type == 1) {
+            //        resp.appoint[each].appointment_type = "Design with us"
+            //      } else {
+            //        resp.appoint[each].appointment_type = "Build with us"
+            //      }
+             //
+            //  }
+            //  return resp;
           }
+        </script>
+
+        <script type="text/javascript">
+          $(document).ready(function(){
+
+              // approve
+
+
+
+
+          })
         </script>
     </body>
 </html>
