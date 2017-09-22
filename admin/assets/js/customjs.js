@@ -7,6 +7,43 @@ var spanOrders     = $("#span-orders");
 var spanApmt       = $("#span-appointments");
 var spanPlans      = $("#span-plans");
 
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function createPass (val1, val2){
+  return "mockervit{}" + val1 + val2 + "alovert"
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+
+function checkCookie(cook) {
+    var token=getCookie(cook);
+    if (token != "") {
+      return true
+    } else {
+      return false
+    }
+}
+
 
 $(document).ready(function(){
   //filestack initialization
@@ -109,10 +146,19 @@ $(document).ready(function(){
         })
 
       } else {
-
         alert("make sure name, description and price fields are not left empty and please upload the main image too if youve not  done that and Yh one more thing please add at least one other image ok. Thanks")
       }
   })
+
+
+
+    // checkcookie
+    console.log(checkCookie("admin"));
+    if (!checkCookie("admin")) {
+      window.location.href = "/admin/login";
+    }
+
+
 
 
 
