@@ -278,7 +278,7 @@
                               <div class="row">
 
 
-                                  <div class="dv-get-all:plans:plans_table">
+                                  <div class="dv-get-all:plans:plans_table dv-label:plans">
 
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-03s">
 
@@ -428,7 +428,13 @@
         <script type="text/javascript" src="../assets/js/index-2.js"></script>
         <script type="text/javascript" src="../assets/js/customjs.js"></script>
         <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+        <script type="text/javascript">
 
+            dvInterceptQueryResponse = function(resp) {
+              console.log(resp.plans);
+            }
+
+        </script>
 
     </body>
 </html>
