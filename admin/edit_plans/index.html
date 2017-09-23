@@ -501,7 +501,7 @@
                 var val =    "<div class = 'col-lg-4'> <br  /> <a>" +
                                "<img class = 'img-responsive' src = " + ele.file + " style='height:200px; width:200' ><br/ >" +
                                "<p style='font-size: 2em'>"+ ele.price +"</p>" +
-                               "<button  class='btn btn-danger  delete-plan'><i  class='fa fa-trash-o'></i> Delete</button> " +
+                               "<button  data =" + datum + " class='btn btn-danger  delete-plan'><i  class='fa fa-trash-o'></i> Delete</button> " +
                                "<button  data =" + datum + "  class='btn btn-primary  edit-plan'><i  class='fa fa-edit'></i> Edit</button> " +
                                "<a   = class='btn btn-primary hidden' id='edit-plan-modal' href='#' data-toggle='modal' data-target='#editAPlanModal'> Edit Plan </a>" +
                              "</a></div>"
@@ -564,10 +564,23 @@
                   })
                 })
 
-
-
-
                 })
+
+
+                // delete button
+                $(document).on('click', '.delete-plan' , function() {
+
+                  var datum = $.parseJSON($(this).attr("data"));
+                  var con   = confirm("Are You Sure You wanna delete?")
+                  if (con) {
+                      SDK.deleteData("plans", "plans_table", "id", datum.id, function(resp){
+                        console.log(resp);
+                      })
+                      }
+                      
+                    })
+
+
             }
 
         </script>
