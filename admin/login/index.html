@@ -253,7 +253,7 @@
 
                   // set another if
                   console.log(resp.payload.result.profile);
-                  if (resp.payload.result.profile.first_name == "adminer") {
+                  if (resp.payload.result.profile.email == "buildgallery@gmail.com") {
                     SDK.setToken(resp.payload.result.token);
                     //set cookie
                     setCookie("admin", JSON.stringify(resp.payload.result), 900000)

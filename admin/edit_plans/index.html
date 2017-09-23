@@ -278,7 +278,7 @@
                               <div class="row">
 
 
-                                  <div id="displayer" class="dv-get-all:plans:plans_table dv-label:plans col-lg-12">
+                                  <div id="displayer" class="dv-get-all:plans:planstable dv-label:plans col-lg-12">
 
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-03s">
 
@@ -557,7 +557,7 @@
 
                    // make an edit request
 
-                  SDK.updateData("plans", "plans_table", "id", datum.id , editBody, function(resp){
+                  SDK.updateData("plans", "planstable", "id", datum.id , editBody, function(resp){
 
                     console.log(resp);
 
@@ -573,11 +573,11 @@
                   var datum = $.parseJSON($(this).attr("data"));
                   var con   = confirm("Are You Sure You wanna delete?")
                   if (con) {
-                      SDK.deleteData("plans", "plans_table", "id", datum.id, function(resp){
+                      SDK.deleteData("plans", "planstable", "id", datum.id, function(resp){
                         console.log(resp);
                       })
                       }
-                      
+
                     })
 
 

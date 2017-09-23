@@ -53,7 +53,7 @@ $(document).ready(function(){
 
 
   // Plans table On Devless
-  SDK.queryData("plans", "plans_table", params, function(response){
+  SDK.queryData("plans", "planstable", params, function(response){
     var value = response.payload.results.length
     plansDisplay.text(value);
     spanPlans.text(value);
