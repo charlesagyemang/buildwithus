@@ -278,7 +278,7 @@
                               <div class="row">
 
 
-                                  <div class="dv-get-all:plans:plans_table dv-label:plans">
+                                  <div id="displayer" class="dv-get-all:plans:plans_table dv-label:plans col-lg-12">
 
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-03s">
 
@@ -387,6 +387,56 @@
 </div>
 
 
+<div id="editAPlanModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center>
+          <h4 class="modal-title">Edit Plan</h4>
+        </center>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="col-lg-3">
+
+          </div>
+          <div class="col-lg-6">
+            <br>
+            <label for="name">Name</label><br>
+            <input  id="edit-input-name" class="form-control" type="text" name="name" value="">
+            <label for="price">Price</label><br>
+            <input id="edit-input-price" class="form-control" type="text" name="price" value=""><br>
+
+            <img id="img-old" src="" alt="" style="width:100px; height:100px;">
+            <button id="btn-main-edit-image" class="btn btn-primary" type="button" name="mImage">Upload new image</button>
+            <br> <br>
+            <label for="description">Description</label><br>
+            <textarea id="txt-edit-description" class="form-control"  name="description" value=""></textarea><br>
+
+            <!-- <button id="btn-other-images" class="btn btn-primary" type="button" name="mImage">Upload other images</button>
+            <label  id="label-other-edit-images" for="otherImages">Images Not Uploaded Yet</label><br> -->
+          </div>
+          <div class="col-lg-3">
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button id="modal-close-plan" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="btn-add-plan-edit-devless" type="button" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 
         <!-- SCROLL TO TOP -->
         <a href="#" id="toTop"></a>
@@ -432,6 +482,92 @@
 
             dvInterceptQueryResponse = function(resp) {
               console.log(resp.plans);
+
+              var realler = [];
+
+              $.each(resp.plans, function(ind,  ele){
+
+                var datum = JSON.stringify({
+                  "id"          : ele.id,
+                  "file"        : ele.file,
+                  "price"       : ele.price.toString().split(" "),
+                  "description" : ele.description.split(" "),
+                  "images"      : ele.images,
+                  "name"        : ele.name.split(" ")
+
+                })
+
+
+                var val =    "<div class = 'col-lg-4'> <br  /> <a>" +
+                               "<img class = 'img-responsive' src = " + ele.file + " style='height:200px; width:200' ><br/ >" +
+                               "<p style='font-size: 2em'>"+ ele.price +"</p>" +
+                               "<button  class='btn btn-danger  delete-plan'><i  class='fa fa-trash-o'></i> Delete</button> " +
+                               "<button  data =" + datum + "  class='btn btn-primary  edit-plan'><i  class='fa fa-edit'></i> Edit</button> " +
+                               "<a   = class='btn btn-primary hidden' id='edit-plan-modal' href='#' data-toggle='modal' data-target='#editAPlanModal'> Edit Plan </a>" +
+                             "</a></div>"
+                realler.push(val);
+              })
+
+
+
+                $("#displayer").html(realler.reverse())
+                // var con = confirm("are you sure")
+                // if (con) {
+                //   alert("yes")
+                // } else {
+                //   alert("naa")
+                // }
+
+                $(document).on('click', '.edit-plan' , function() {
+                  var datum = $.parseJSON($(this).attr("data"));
+
+                  // open modal
+                  $("#edit-plan-modal").click();
+
+                  // fill in the value
+                  $("#edit-input-name").val(datum.name.join(" "));
+
+                  $("#edit-input-price").val(datum.price.join(" "));
+
+                  $("#txt-edit-description").text(datum.description.join(" "));
+
+                  $("#img-old").attr("src", datum.file);
+
+
+                  // get new values
+                  var newName        = $("#edit-input-name").val();
+                  var newPrices      = $("#edit-input-price").val();
+                  var newDescription = $("#txt-edit-description").text();
+
+
+                  // create json body and prepare for post
+                  var editBody = {
+
+                    "name"        : newName,
+                    "price"       : newPrices,
+                    "description" : newDescription
+                  }
+
+                 // button click
+                 $("#btn-add-plan-edit-devless").click(function(){
+                   //console.log(editBody);
+
+                   $this = $(this);
+                   $this.text("saving")
+
+                   // make an edit request
+
+                  SDK.updateData("plans", "plans_table", "id", datum.id , editBody, function(resp){
+
+                    console.log(resp);
+
+                  })
+                })
+
+
+
+
+                })
             }
 
         </script>
