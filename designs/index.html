@@ -157,7 +157,7 @@
                   </li>
                   <li class="dropdown active">
                       <a tabindex="0" href="/designs" aria-expanded="false">
-                          Design Catalogue
+                        Buy Our Designs
                       </a>
                   </li>
                   <li class="dropdown">
@@ -205,12 +205,74 @@
 <!-- property section start -->
 <div class="properties-section-body content-area">
     <div class="container">
+
+          <h3>Filter by  </h3>
+
+
+          <select id="floor-area-select" class=" d-block my-3" required>
+           <option value="0">Select Floor Area</option>
+           <option value="1">2400 sq ft</option>
+           <option value="2">4800 sq ft</option>
+           <option value="3">9600 sq ft</option>
+         </select>
+
+         <select id="number-of-rooms-select" class=" d-block my-3" required>
+          <option value="0">Select Number Of Rooms</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="1">4</option>
+          <option value="2">5</option>
+          <option value="3">6</option>
+          <option value="1">7</option>
+          <option value="2">8</option>
+          <option value="3">9</option>
+          <option value="1">10</option>
+         </select>
+
+        <select id="number-of-bathrooms-select" class=" d-block my-3" required>
+         <option value="0">Select Number Of Bathrooms</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="1">4</option>
+         <option value="2">5</option>
+         <option value="3">6</option>
+         <option value="1">7</option>
+         <option value="2">8</option>
+         <option value="3">9</option>
+         <option value="1">10</option>
+       </select>
+
+       <select id="plot-size-select" class=" d-block my-3" required>
+        <option value="0">Select Number Plot Size</option>
+        <option value="1">70  by 100 </option>
+        <option value="2">140 by 200 </option>
+        <option value="3">210 by 300 </option>
+      </select>
+
+      <select id="design-fee-select" class=" d-block my-3" required>
+       <option value="0">Select Design Fee</option>
+       <option value="1">GHC 1000</option>
+       <option value="2">GHC 1200 - GHC 3000</option>
+       <option value="3">GHC 3200 - GHC 6000</option>
+       <option value="3">GHC 6200 upwards</option>
+     </select>
+     <br><br>
+
+     <button id="btn-reset-filters" class="btn btn-danger" type="button" name="button">Reset Filters</button>
+     <button id="btn-search" class="btn btn-primary" type="button" name="button">Search</button>
+        <br> <br>
         <div class="row">
+
             <div class="col-lg-12 col-md-12 col-xs-12">
                 <!-- Option bar Start -->
                 <div class="option-bar">
                     <div class="row">
+
                        <div class="col-lg-6 col-md-5 col-sm-5 col-xs-2">
+
+
                            <h4>
                                 <span class="heading-icon">
                                     <i class="fa fa-search-large"></i>
@@ -377,6 +439,35 @@
 
     $('#btn-about-us').mouseleave(function(){
       $('#myDropdown').hide();
+    })
+
+    // Search botton functionality
+    $("#btn-search").unbind('click').click(function(){
+    //  alert($("#number-of-bathrooms-select option:selected").text());
+     // filter by Design fee, Floor Area, Number Of bedrooms, Plot size, Number Of Bathrooms -->
+
+      // get all the values of the filters
+      var floorArea         = $("#floor-area-select option:selected").text();
+      var numberOfRooms     = $("#number-of-rooms-select option:selected").text();
+      var plotSize          = $("#plot-size-select option:selected").text();
+      var numberOfBathrooms = $("#number-of-bathrooms-select option:selected").text();
+      var designFee         = $("#design-fee-select option:selected").text();
+
+      console.log("==floorArea==", floorArea);
+      console.log("==NumberOfRooms==", numberOfRooms);
+      console.log("==PlotSize==", plotSize);
+      console.log("==NumberOfBathrooms==", numberOfBathrooms);
+      console.log("==DesignFee==", designFee);
+
+    })
+
+    // Reset Filter Button functionality
+    $("#btn-reset-filters").unbind('click').click(function(){
+      $("#floor-area-select").val(0);
+      $("#number-of-rooms-select").val(0);
+      $("#plot-size-select").val(0);
+      $("#number-of-bathrooms-select").val(0);
+      $("#design-fee-select").val(0);
     })
   })
 </script>
