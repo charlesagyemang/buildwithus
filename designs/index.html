@@ -327,23 +327,27 @@
                                   <ul class="facilities-list clearfix">
                                       <li>
                                           <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
-                                          <span>4800 sq ft</span>
+                                          <span class="var-floor_area">4800 </span> sq ft
                                       </li>
                                       <li>
                                           <i class="flaticon-bed"></i>
-                                          <span>3 Beds</span>
+                                          <span class="var-number_of_rooms">3 </span> Beds
                                       </li>
                                       <li>
                                           <i class="flaticon-holidays"></i>
-                                          <span> 2 Baths</span>
+                                          <span class="var-number_of_bathrooms">  </span> Baths
                                       </li>
-                                      <li>
+                                      <!-- <li>
                                           <i class="flaticon-vehicle"></i>
                                           <span>1 Garage</span>
                                       </li>
                                       <li>
                                           <i class="flaticon-building"></i>
                                           <span> 3 Balcony</span>
+                                      </li> -->
+                                      <li>
+                                          <i class="flaticon-building"></i>
+                                          <span class="var-plot_size"> 3 Balcony</span>
                                       </li>
                                   </ul>
                               </div>
@@ -458,6 +462,35 @@
       console.log("==PlotSize==", plotSize);
       console.log("==numberOfBathrooms==", numberOfBathrooms);
       console.log("==DesignFee==", designFee);
+
+      /*
+       params = {
+          size:2,
+          offset:2,
+          orderBy:"name",
+          randomize:1
+          search:["name, edmond"],
+          orWhere: ["age,2"],
+          lessThan: ["age,1"],
+          between: ["age,1,5"],
+          greaterThan: ["age,20"],
+          lessThanEqual: ["age,30"],
+          greaterThanEqual: ["age,1"],
+          where:["id,1","name,edmond"]
+        }
+        */
+
+        // greater than doesnt work less than is trouble
+        params = {
+           lessThan: ["price,900"]
+         }
+
+
+        SDK.queryData("plans", "planstable", params, function(response){
+          console.log(response)
+        });
+
+
 
     })
 
