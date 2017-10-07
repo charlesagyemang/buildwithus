@@ -363,7 +363,19 @@
                           <!-- Property end -->
                       </div>
                 </div>
+
               </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div id="search-results">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
                 <!-- Property grid end -->
 
                 <!-- Page navigation Start -->
@@ -468,16 +480,8 @@
       if (designFee !== "0" || plotSize !== "0" || numberOfRooms !== "0" || numberOfBathrooms !== "0" || floorArea !== "0") {
         // greater than doesnt work less than is trouble
 
-          $("#div-display-all").html("loading..")
-        /*
-        params = {
-           between: ["price,"               + designFee],
-           between: ["plot_size,"+ plotSize],
-           between: ["number_of_rooms,"     + numberOfRooms],
-           between: ["number_of_bathrooms," + numberOfBathrooms],
-           between: ["floor_area,"          + floorArea]
-         }
-        */
+          $("#div-display-all").html("<h3>loading please wait...</h3>")
+
 
         // check for the unselected boxes and work it out
         var arr = [];
@@ -502,33 +506,107 @@
         }
 
         params={between: arr}
-        console.log(params);
-
-        console.log("==floorArea==", floorArea);
-        console.log("==NumberOfRooms==", numberOfRooms);
-        console.log("==PlotSize==", plotSize);
-        console.log("==numberOfBathrooms==", numberOfBathrooms);
-        console.log("==DesignFee==", designFee);
+        // console.log(params);
+        //
+        // console.log("==floorArea==", floorArea);
+        // console.log("==NumberOfRooms==", numberOfRooms);
+        // console.log("==PlotSize==", plotSize);
+        // console.log("==numberOfBathrooms==", numberOfBathrooms);
+        // console.log("==DesignFee==", designFee);
 
 
         SDK.queryData("plans", "planstable", params, function(response){
           // check for 0 results
           var count  = response.payload.properties.current_count;
+          var result = response.payload.results;
 
           if (count > 0) {
             console.log("greater than zero");
             // Hide the div that already exists
 
-              $("#div-display-all").addClass("hidden");
+            $("#div-display-all").html("<h3>" + count + " results found</h3>");
+            console.log("result", response.payload.results);
 
             // Format the results as it comes and push it in an array
+            var displayArr = []
 
-            // hide the show-all div
 
-            // Display Results And Make Sure It provides for a zero count
+            // Display Results
+
+              // run result loop and format it and push it
+              $.each(result, function(ind, ele){
+                console.log(ele);
+                var id              = ele.id;
+                var name            = ele.name;
+                var numOfBaths      = ele.number_of_bathrooms;
+                var numOfRoom       = ele.number_of_rooms;
+                var plotSizes       = ele.plot_size;
+                var prices          = ele.price;
+                var file            = ele.file;
+                var floorAreas      = ele.floor_area;
+
+
+
+                var displyer = "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-03s'>" +
+                                  "<div class='property'>" +
+                                      "<a href=" + "/design-details/?design_id="+ id + " class='property-img var-id'>" +
+                                          "<div  class='hide property-tag button sale'>" +
+                                          "</div>" +
+                                          "<img class='var-file' src=" + file + "  alt='properties-6' class='img-responsive' style='height:200px; width:200'>" +
+                                          "<a href=" + "/design-details/?design_id="+ id + "   class='property-tag button pull-right var-id'>Details</a><br  />" +
+                                      "</a>" +
+                                      "<div class='property-content'>" +
+                                          "<h1 class='title'>" +
+                                          "<a href=" + "/design-details/?design_id="+ id + "  class='var-id'><p  class='var-name'>" + name + "</p></a>" +
+                                          "</h1>" +
+
+                                          "<ul class='facilities-list clearfix'>" +
+                                              "<li>" +
+                                                  "<i class='flaticon-square-layouting-with-black-square-in-east-area'></i>" +
+                                                  "<span class='var-floor_area'>" + floorAreas + " </span> sq ft" +
+                                              "</li>" +
+                                              "<li>"  +
+                                                  "<i class='flaticon-bed'></i>" +
+                                                  "<span class='var-number_of_rooms'>" + numOfRoom + " </span> Beds" +
+                                              "</li>" +
+                                              "<li>"  +
+                                                  "<i class='flaticon-holidays'></i>" +
+                                                  "<span class='var-number_of_bathrooms'>" + numOfBaths + "  </span> Baths" +
+                                              "</li>" +
+
+                                              "<li>" +
+                                                  "<i class='flaticon-building'></i>" +
+                                                  "<span class='var-plot_size'> " + plotSizes + " plots</span>" +
+                                              "</li>" +
+                                          "</ul>" +
+                                      "</div>" +
+                                  "</div>" +
+                              "</div>"
+
+                 displayArr.push(displyer);
+              })
+              // we will need
+              // name , number_of_bathrooms, number_of_rooms, plot_size, price, file, floor_area
+              //
+              // var name            = "name";
+              // var numOfBaths      = "2";
+              // var numOfRoom       = "3";
+              // var plotSizes       = "1";
+              // var prices          = "10000";
+              // var file            = "file";
+              // var floorAreas      = "2800";
+
+
+
+
+            $("#search-results").html(displayArr);
 
           } else {
             console.log("Zero or less");
+            $("#div-display-all").html("<h3> 0 results found</h3><button id='no-results' class='btn btn-primary'>Reset filters</button>");
+            $("#no-results").unbind('click').click(function(){
+              location.reload();
+            })
           }
 
 
@@ -549,11 +627,6 @@
         console.log("==DesignFee==", designFee);
       */
 
-
-
-
-
-
     })
 
     // Reset Filter Button functionality
@@ -563,6 +636,7 @@
       $("#plot-size-select").val(0);
       $("#number-of-bathrooms-select").val(0);
       $("#design-fee-select").val(0);
+      location.reload()
     })
   })
 </script>
